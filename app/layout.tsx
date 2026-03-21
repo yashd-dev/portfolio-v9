@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     url: "https://yashd.in",
     images: [
       {
-        url: "/images/sharing-image-2400x2400.png",
+        url: "https://yashd.in/images/sharing-image-2400x2400.png",
         width: 2400,
         height: 2400,
         alt: "Yash Deshpande — Creative Developer",
       },
       {
-        url: "/images/sharing-image-1200x630.png",
+        url: "https://yashd.in/images/sharing-image-1200x630.png",
         width: 1200,
         height: 630,
         alt: "Yash Deshpande — Full-Stack Creative Developer Portfolio",
