@@ -1,0 +1,448 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Tailwind Theme - CSS Variables & Custom Tokens
+   ============================================================================ */
+
+@theme inline {
+  /* Color tokens - dynamically set by theme */
+  --color-fg: var(--fg);
+  --color-fg-50: var(--fg-50);
+  --color-fg-33: var(--fg-33);
+  --color-fg-25: var(--fg-25);
+  --color-fg-20: var(--fg-20);
+  --color-fg-15: var(--fg-15);
+  --color-fg-10: var(--fg-10);
+  --color-fg-5: var(--fg-5);
+  --color-fg-0: var(--fg-0);
+  --color-bg: var(--bg);
+  --color-bg-0: var(--bg-0);
+
+  /* Font sizes */
+  --font-size-huge: clamp(36px, 5.14vw, 5.14vw);
+  --font-size-large: clamp(26px, 1.81vw, 1.81vw);
+  --font-size-medium: 26px;
+  --font-size-regular: 16px;
+
+  /* Grid */
+  --spacing-app-margin: 40px;
+  --spacing-xheight: 220px;
+}
+
+/* ============================================================================
+   Root Variables (default = theme-16 = white bg / black fg)
+   ============================================================================ */
+
+:root {
+  --fg: rgb(0 0 0 / 1);
+  --fg-50: rgb(0 0 0 / 0.5);
+  --fg-33: rgb(0 0 0 / 0.333);
+  --fg-25: rgb(0 0 0 / 0.25);
+  --fg-20: rgb(0 0 0 / 0.2);
+  --fg-15: rgb(0 0 0 / 0.15);
+  --fg-10: rgb(0 0 0 / 0.1);
+  --fg-5: rgb(0 0 0 / 0.05);
+  --fg-0: rgb(0 0 0 / 0);
+  --bg: rgb(255 255 255 / 1);
+  --bg-0: rgb(255 255 255 / 0);
+}
+
+/* ============================================================================
+   Theme classes (17 total: theme-0 through theme-16)
+   ============================================================================ */
+
+.theme-16 {
+  --fg: rgb(0 0 0);
+  --fg-50: rgb(0 0 0 / 0.5);
+  --fg-33: rgb(0 0 0 / 0.333);
+  --fg-25: rgb(0 0 0 / 0.25);
+  --fg-20: rgb(0 0 0 / 0.2);
+  --fg-15: rgb(0 0 0 / 0.15);
+  --fg-10: rgb(0 0 0 / 0.1);
+  --fg-5: rgb(0 0 0 / 0.05);
+  --fg-0: rgb(0 0 0 / 0);
+  --bg: rgb(255 255 255);
+  --bg-0: rgb(255 255 255 / 0);
+}
+.theme-15 {
+  --fg: rgb(18 25 26);
+  --fg-50: rgb(18 25 26 / 0.5);
+  --fg-33: rgb(18 25 26 / 0.333);
+  --fg-25: rgb(18 25 26 / 0.25);
+  --fg-20: rgb(18 25 26 / 0.2);
+  --fg-15: rgb(18 25 26 / 0.15);
+  --fg-10: rgb(18 25 26 / 0.1);
+  --fg-5: rgb(18 25 26 / 0.05);
+  --fg-0: rgb(18 25 26 / 0);
+  --bg: rgb(242 251 253);
+  --bg-0: rgb(242 251 253 / 0);
+}
+.theme-14 {
+  --fg: rgb(30 40 42);
+  --fg-50: rgb(30 40 42 / 0.5);
+  --fg-33: rgb(30 40 42 / 0.333);
+  --fg-25: rgb(30 40 42 / 0.25);
+  --fg-20: rgb(30 40 42 / 0.2);
+  --fg-15: rgb(30 40 42 / 0.15);
+  --fg-10: rgb(30 40 42 / 0.1);
+  --fg-5: rgb(30 40 42 / 0.05);
+  --fg-0: rgb(30 40 42 / 0);
+  --bg: rgb(222 235 238);
+  --bg-0: rgb(222 235 238 / 0);
+}
+.theme-13 {
+  --fg: rgb(38 54 49);
+  --fg-50: rgb(38 54 49 / 0.5);
+  --fg-33: rgb(38 54 49 / 0.333);
+  --fg-25: rgb(38 54 49 / 0.25);
+  --fg-20: rgb(38 54 49 / 0.2);
+  --fg-15: rgb(38 54 49 / 0.15);
+  --fg-10: rgb(38 54 49 / 0.1);
+  --fg-5: rgb(38 54 49 / 0.05);
+  --fg-0: rgb(38 54 49 / 0);
+  --bg: rgb(213 227 222);
+  --bg-0: rgb(213 227 222 / 0);
+}
+.theme-12 {
+  --fg: rgb(59 66 54);
+  --fg-50: rgb(59 66 54 / 0.5);
+  --fg-33: rgb(59 66 54 / 0.333);
+  --fg-25: rgb(59 66 54 / 0.25);
+  --fg-20: rgb(59 66 54 / 0.2);
+  --fg-15: rgb(59 66 54 / 0.15);
+  --fg-10: rgb(59 66 54 / 0.1);
+  --fg-5: rgb(59 66 54 / 0.05);
+  --fg-0: rgb(59 66 54 / 0);
+  --bg: rgb(209 218 203);
+  --bg-0: rgb(209 218 203 / 0);
+}
+.theme-11 {
+  --fg: rgb(81 78 56);
+  --fg-50: rgb(81 78 56 / 0.5);
+  --fg-33: rgb(81 78 56 / 0.333);
+  --fg-25: rgb(81 78 56 / 0.25);
+  --fg-20: rgb(81 78 56 / 0.2);
+  --fg-15: rgb(81 78 56 / 0.15);
+  --fg-10: rgb(81 78 56 / 0.1);
+  --fg-5: rgb(81 78 56 / 0.05);
+  --fg-0: rgb(81 78 56 / 0);
+  --bg: rgb(213 209 183);
+  --bg-0: rgb(213 209 183 / 0);
+}
+.theme-10 {
+  --fg: rgb(119 78 52);
+  --fg-50: rgb(119 78 52 / 0.5);
+  --fg-33: rgb(119 78 52 / 0.333);
+  --fg-25: rgb(119 78 52 / 0.25);
+  --fg-20: rgb(119 78 52 / 0.2);
+  --fg-15: rgb(119 78 52 / 0.15);
+  --fg-10: rgb(119 78 52 / 0.1);
+  --fg-5: rgb(119 78 52 / 0.05);
+  --fg-0: rgb(119 78 52 / 0);
+  --bg: rgb(243 230 207);
+  --bg-0: rgb(243 230 207 / 0);
+}
+.theme-9 {
+  --fg: rgb(233 79 14);
+  --fg-50: rgb(233 79 14 / 0.5);
+  --fg-33: rgb(233 79 14 / 0.333);
+  --fg-25: rgb(233 79 14 / 0.25);
+  --fg-20: rgb(233 79 14 / 0.2);
+  --fg-15: rgb(233 79 14 / 0.15);
+  --fg-10: rgb(233 79 14 / 0.1);
+  --fg-5: rgb(233 79 14 / 0.05);
+  --fg-0: rgb(233 79 14 / 0);
+  --bg: rgb(255 210 180);
+  --bg-0: rgb(255 210 180 / 0);
+}
+.theme-8 {
+  --fg: rgb(243 230 207);
+  --fg-50: rgb(243 230 207 / 0.6);
+  --fg-33: rgb(243 230 207 / 0.45);
+  --fg-25: rgb(243 230 207 / 0.4);
+  --fg-20: rgb(243 230 207 / 0.27);
+  --fg-15: rgb(243 230 207 / 0.22);
+  --fg-10: rgb(243 230 207 / 0.17);
+  --fg-5: rgb(243 230 207 / 0.12);
+  --fg-0: rgb(243 230 207 / 0);
+  --bg: rgb(233 79 14);
+  --bg-0: rgb(233 79 14 / 0);
+}
+.theme-7 {
+  --fg: rgb(243 216 184);
+  --fg-50: rgb(243 216 184 / 0.6);
+  --fg-33: rgb(243 216 184 / 0.45);
+  --fg-25: rgb(243 216 184 / 0.4);
+  --fg-20: rgb(243 216 184 / 0.27);
+  --fg-15: rgb(243 216 184 / 0.22);
+  --fg-10: rgb(243 216 184 / 0.17);
+  --fg-5: rgb(243 216 184 / 0.12);
+  --fg-0: rgb(243 216 184 / 0);
+  --bg: rgb(157 68 51);
+  --bg-0: rgb(157 68 51 / 0);
+}
+.theme-6 {
+  --fg: rgb(242 195 164);
+  --fg-50: rgb(242 195 164 / 0.6);
+  --fg-33: rgb(242 195 164 / 0.45);
+  --fg-25: rgb(242 195 164 / 0.4);
+  --fg-20: rgb(242 195 164 / 0.27);
+  --fg-15: rgb(242 195 164 / 0.22);
+  --fg-10: rgb(242 195 164 / 0.17);
+  --fg-5: rgb(242 195 164 / 0.12);
+  --fg-0: rgb(242 195 164 / 0);
+  --bg: rgb(119 58 53);
+  --bg-0: rgb(119 58 53 / 0);
+}
+.theme-5 {
+  --fg: rgb(255 177 177);
+  --fg-50: rgb(255 177 177 / 0.6);
+  --fg-33: rgb(255 177 177 / 0.45);
+  --fg-25: rgb(255 177 177 / 0.4);
+  --fg-20: rgb(255 177 177 / 0.27);
+  --fg-15: rgb(255 177 177 / 0.22);
+  --fg-10: rgb(255 177 177 / 0.17);
+  --fg-5: rgb(255 177 177 / 0.12);
+  --fg-0: rgb(255 177 177 / 0);
+  --bg: rgb(84 60 89);
+  --bg-0: rgb(84 60 89 / 0);
+}
+.theme-4 {
+  --fg: rgb(248 166 211);
+  --fg-50: rgb(248 166 211 / 0.6);
+  --fg-33: rgb(248 166 211 / 0.45);
+  --fg-25: rgb(248 166 211 / 0.4);
+  --fg-20: rgb(248 166 211 / 0.27);
+  --fg-15: rgb(248 166 211 / 0.22);
+  --fg-10: rgb(248 166 211 / 0.17);
+  --fg-5: rgb(248 166 211 / 0.12);
+  --fg-0: rgb(248 166 211 / 0);
+  --bg: rgb(64 54 79);
+  --bg-0: rgb(64 54 79 / 0);
+}
+.theme-3 {
+  --fg: rgb(207 188 236);
+  --fg-50: rgb(207 188 236 / 0.6);
+  --fg-33: rgb(207 188 236 / 0.45);
+  --fg-25: rgb(207 188 236 / 0.4);
+  --fg-20: rgb(207 188 236 / 0.27);
+  --fg-15: rgb(207 188 236 / 0.22);
+  --fg-10: rgb(207 188 236 / 0.17);
+  --fg-5: rgb(207 188 236 / 0.12);
+  --fg-0: rgb(207 188 236 / 0);
+  --bg: rgb(46 50 72);
+  --bg-0: rgb(46 50 72 / 0);
+}
+.theme-2 {
+  --fg: rgb(183 212 245);
+  --fg-50: rgb(183 212 245 / 0.6);
+  --fg-33: rgb(183 212 245 / 0.45);
+  --fg-25: rgb(183 212 245 / 0.4);
+  --fg-20: rgb(183 212 245 / 0.27);
+  --fg-15: rgb(183 212 245 / 0.22);
+  --fg-10: rgb(183 212 245 / 0.17);
+  --fg-5: rgb(183 212 245 / 0.12);
+  --fg-0: rgb(183 212 245 / 0);
+  --bg: rgb(24 41 56);
+  --bg-0: rgb(24 41 56 / 0);
+}
+.theme-1 {
+  --fg: rgb(195 235 241);
+  --fg-50: rgb(195 235 241 / 0.6);
+  --fg-33: rgb(195 235 241 / 0.45);
+  --fg-25: rgb(195 235 241 / 0.4);
+  --fg-20: rgb(195 235 241 / 0.27);
+  --fg-15: rgb(195 235 241 / 0.22);
+  --fg-10: rgb(195 235 241 / 0.17);
+  --fg-5: rgb(195 235 241 / 0.12);
+  --fg-0: rgb(195 235 241 / 0);
+  --bg: rgb(5 26 28);
+  --bg-0: rgb(5 26 28 / 0);
+}
+.theme-0 {
+  --fg: rgb(255 255 255);
+  --fg-50: rgb(255 255 255 / 0.6);
+  --fg-33: rgb(255 255 255 / 0.45);
+  --fg-25: rgb(255 255 255 / 0.4);
+  --fg-20: rgb(255 255 255 / 0.27);
+  --fg-15: rgb(255 255 255 / 0.22);
+  --fg-10: rgb(255 255 255 / 0.17);
+  --fg-5: rgb(255 255 255 / 0.12);
+  --fg-0: rgb(255 255 255 / 0);
+  --bg: rgb(0 0 0);
+  --bg-0: rgb(0 0 0 / 0);
+}
+
+/* ============================================================================
+   Global Base Styles
+   ============================================================================ */
+
+* {
+  font-family: "Geist", system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-feature-settings: "liga", "ss02", "ss03", "ss04", "ss06";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.25;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--fg);
+  background-color: var(--bg);
+  transition:
+    color 0.5s ease,
+    background-color 0.5s ease;
+}
+
+::selection {
+  background-color: var(--fg-10);
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes welcome {
+  0%,
+  5% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var(--fg-25);
+    transform: scale(1);
+  }
+  66.666% {
+    background-color: var(--fg-0);
+    transform: scale(4);
+  }
+  100% {
+  }
+}
+
+@keyframes sway-text {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0.15;
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes sway-arrow {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0.15;
+    transform: translateX(-16px);
+  }
+}
+
+/* ============================================================================
+   Image overlays for themed color tinting
+   ============================================================================ */
+
+/* Themes 16 & 0 (pure b/w): hide overlays */
+.theme-16 .image-overlay-01,
+.theme-16 .image-overlay-02,
+.theme-0 .image-overlay-01,
+.theme-0 .image-overlay-02 {
+  display: none;
+}
+
+/* Themes 9-15 (light bg): multiply + lighten */
+.theme-15 .image-overlay-01,
+.theme-14 .image-overlay-01,
+.theme-13 .image-overlay-01,
+.theme-12 .image-overlay-01,
+.theme-11 .image-overlay-01,
+.theme-10 .image-overlay-01,
+.theme-9 .image-overlay-01 {
+  background-color: var(--bg);
+  opacity: 0.33;
+  mix-blend-mode: multiply;
+}
+.theme-15 .image-overlay-02,
+.theme-14 .image-overlay-02,
+.theme-13 .image-overlay-02,
+.theme-12 .image-overlay-02,
+.theme-11 .image-overlay-02,
+.theme-10 .image-overlay-02,
+.theme-9 .image-overlay-02 {
+  background-color: var(--fg);
+  mix-blend-mode: lighten;
+}
+
+/* Themes 1-8 (dark bg): multiply + lighten (inverted) */
+.theme-8 .image-overlay-01,
+.theme-7 .image-overlay-01,
+.theme-6 .image-overlay-01,
+.theme-5 .image-overlay-01,
+.theme-4 .image-overlay-01,
+.theme-3 .image-overlay-01,
+.theme-2 .image-overlay-01,
+.theme-1 .image-overlay-01 {
+  background-color: var(--fg);
+  opacity: 0.33;
+  mix-blend-mode: multiply;
+}
+.theme-8 .image-overlay-02,
+.theme-7 .image-overlay-02,
+.theme-6 .image-overlay-02,
+.theme-5 .image-overlay-02,
+.theme-4 .image-overlay-02,
+.theme-3 .image-overlay-02,
+.theme-2 .image-overlay-02,
+.theme-1 .image-overlay-02 {
+  background-color: var(--bg);
+  mix-blend-mode: lighten;
+}
+
+/* ============================================================================
+   Responsive overrides
+   ============================================================================ */
+
+@media (max-width: 1280px) {
+  :root {
+    --font-size-huge: clamp(36px, 6.35vw, 6.35vw);
+    --font-size-large: clamp(26px, 2.24vw, 2.24vw);
+  }
+}
+
+@media (max-width: 1020px) {
+  :root {
+    --spacing-app-margin: 20px;
+    --font-size-huge: clamp(36px, 7.77vw, 7.77vw);
+    --font-size-large: clamp(22px, 2.74vw, 2.74vw);
+    --font-size-medium: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --spacing-app-margin: 16px;
+    --font-size-huge: clamp(32px, 7.5vw, 7.5vw);
+    --font-size-large: clamp(22px, 2.64vw, 2.64vw);
+  }
+}
+
+@media (max-height: 760px) {
+  :root {
+    --spacing-xheight: 120px;
+  }
+}
