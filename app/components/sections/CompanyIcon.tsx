@@ -1,10 +1,5 @@
 "use client";
 
-/**
- * Renders a company logo SVG.
- * Uses the standardised path data from icons.ts for most icons,
- * or a special case for the Cocoon icon which is extremely complex.
- */
 export default function CompanyIcon({
   iconKey,
   pathData,

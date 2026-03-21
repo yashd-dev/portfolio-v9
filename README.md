@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤓 Yash Deshpande — Creative Developer Portfolio (v9)
 
-## Getting Started
+Welcome to the 9th iteration of my personal portfolio, yes i am this indecisive :)
 
-First, run the development server:
+![Portfolio Preview](public/images/sharing-image-1200x630.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Core Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **🌈 Dynamic Theme Spectrum**: A custom sunlight-inspired theme slider (bottom-left sun icon) allowing you to cycle through 17 refined theme states from deep obsidian to pure paper white.
+- **📐 Advanced Grid Overlay**: Toggleable design grids (Master, Vertical, and Horizontal) to see the underlying architecture of the layout.
+- **⌨️ Keyboard First Navigation**: Power-user shortcuts for almost every interaction on the site.
+- **📊 Live GitHub Contributions**: Integrated year-wise contribution graph fetching directly from GitHub API for `yashd-dev`.
+- **🎯 Perspective Sections**: Audience-specific hero content for recruiters, designers, and engineers.
+- **⚡ Performance Optimized**: Built on Next.js 16 for near-instant transitions and zero-slop UIs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **State Management**: React Context (Theme & Grid settings)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Package Manager**: [Bun](https://bun.sh/)
 
-## Learn More
+## ⌨️ Keyboard Shortcuts
 
-To learn more about Next.js, take a look at the following resources:
+| Key | Action |
+|-----|--------|
+| `G` | Toggle Master Grid Overlay |
+| `V` | Toggle Vertical Grid lines |
+| `H` | Toggle Horizontal Grid lines |
+| `N` | Navigate to Next Section (wraps around) |
+| `S` | Cycle through Theme Spectrum |
+| `B` / `W` | Toggle between Black & White themes |
+| `Esc` | Close Shortcuts Dialog |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/data/content.ts`: **The Content Engine.** All copy, projects, and links are stored here. Modify this to update the site without touching component logic.
+- `app/context/ThemeContext.tsx`: The logic behind the theme spectrum and grid system.
+- `app/components/GridOverlay.tsx`: The SVG-based animated grid system.
+- `app/components/sections/`: Individual section components (Intro, Work, Beliefs, etc.).
 
-## Deploy on Vercel
+## 🚀 Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Install Dependencies**:
+   ```bash
+   bun install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Run Development Server**:
+   ```bash
+   bun dev
+   ```
+
+3. **Build for Production**:
+   ```bash
+   bun run build
+   ```
+
+---
+Made with ❤️ by [Yash Deshpande](https://yashd.in)
