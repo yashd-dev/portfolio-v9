@@ -17,7 +17,7 @@ export default function ReferencesSection() {
     >
       <div
         className="col-span-full lg:col-start-5 lg:col-end-[-1]"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        style={{ paddingBottom: "12px" }}
       >
         <div className="grid grid-cols-2 gap-5">
           {REFERENCES.map((ref, i) => (

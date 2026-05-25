@@ -281,7 +281,6 @@
 * {
   font-family: "Geist", system-ui, sans-serif;
   font-style: normal;
-  font-weight: 500;
   font-feature-settings: "liga", "ss02", "ss03", "ss04", "ss06";
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -294,11 +293,17 @@ html {
 }
 
 body {
+  font-weight: 500;
   color: var(--fg);
   background-color: var(--bg);
   transition:
     color 0.5s ease,
     background-color 0.5s ease;
+}
+
+/* Enhancing hierarchy for body vs headers, especially on mobile */
+p {
+  font-weight: 400;
 }
 
 ::selection {
@@ -441,9 +446,18 @@ body {
     --spacing-app-margin: 16px;
     --spacing-xheight: 88px;
     --spacing-section: 48px;
-    --font-size-huge: clamp(30px, 7vw, 7vw);
-    --font-size-large: clamp(22px, 2.64vw, 2.64vw);
+    --font-size-huge: clamp(32px, 9vw, 40px);
+    --font-size-large: clamp(24px, 6vw, 28px);
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 
 @media (max-height: 760px) {

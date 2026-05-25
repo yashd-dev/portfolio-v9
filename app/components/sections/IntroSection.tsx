@@ -49,11 +49,15 @@ export default function IntroSection() {
         gridTemplateColumns: "repeat(12, 1fr)",
       }}
     >
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none transition-opacity duration-1000 ease-in-out"
         style={{
           zIndex: 0,
-          opacity: activeId === "product-designers" && (activeNavSection === "intro" || activeNavSection === "work") ? 1 : 0,
+          opacity:
+            activeId === "product-designers" &&
+            (activeNavSection === "intro" || activeNavSection === "work")
+              ? 1
+              : 0,
           backgroundImage: "url('/images/bg-flower.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -73,12 +77,16 @@ export default function IntroSection() {
             maskImage: `linear-gradient(to right, ${
               showLeftMask ? "transparent, black 40px" : "black 0%"
             }, ${
-              showRightMask ? "black calc(100% - 40px), transparent 100%" : "black 100%"
+              showRightMask
+                ? "black calc(100% - 40px), transparent 100%"
+                : "black 100%"
             })`,
             WebkitMaskImage: `linear-gradient(to right, ${
               showLeftMask ? "transparent, black 40px" : "black 0%"
             }, ${
-              showRightMask ? "black calc(100% - 40px), transparent 100%" : "black 100%"
+              showRightMask
+                ? "black calc(100% - 40px), transparent 100%"
+                : "black 100%"
             })`,
           }}
         >
