@@ -64,9 +64,14 @@ export default function RootLayout({
     <html lang="en" className="antialiased overflow-x-hidden">
       <head>
         <link
-  rel="icon"
-  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤓</text></svg>"
-/>
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤓</text></svg>"
+        />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="1cb82add-d8e1-495b-af1d-a2202c221069"
+        ></script>
       </head>
       <body className="overflow-x-hidden">
         <ThemeProvider>{children}</ThemeProvider>
