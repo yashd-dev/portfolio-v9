@@ -3,7 +3,6 @@
 import { useTheme } from "@/app/context/ThemeContext";
 import { useState } from "react";
 
-const TOTAL_THEMES = 17; // 0–16
 const SLIDER_HEIGHT = 368;
 const DOT_COUNT = 17;
 
@@ -12,7 +11,7 @@ const DOT_COUNT = 17;
  * and grid overlay toggle.
  */
 export default function AppAside() {
-  const { theme, setTheme, gridVisible, toggleGrid } = useTheme();
+  const { theme, setTheme, toggleGrid } = useTheme();
   const [sliderVisible, setSliderVisible] = useState(false);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
 

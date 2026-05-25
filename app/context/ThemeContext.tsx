@@ -52,6 +52,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("portfolio-theme");
     if (saved !== null && !isNaN(Number(saved))) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- keeps SSR theme stable, then applies the saved client preference after mount.
       setThemeState(Number(saved));
     } else if (
       window.matchMedia &&

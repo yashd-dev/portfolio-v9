@@ -1,9 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { GitHubCalendar } from "react-github-calendar";
+import dynamic from "next/dynamic";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useState } from "react";
+
+const DISCUSSION_LINK = "https://cal.com/yashd-dev/discussion";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((mod) => mod.GitHubCalendar),
+  { ssr: false },
+);
 
 export default function ContactSection() {
   const { theme } = useTheme();
@@ -22,7 +29,7 @@ export default function ContactSection() {
       <div
         className="col-span-full lg:col-start-3 lg:col-end-[-1]"
         style={{
-          paddingTop: "220px",
+          paddingTop: "var(--spacing-section)",
           paddingBottom: "var(--spacing-app-margin)",
         }}
       >
@@ -71,7 +78,7 @@ export default function ContactSection() {
               </div>
             </div>
  {/* GitHub Contribution Graph */}
-                <div className="pt-8 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
+                <div className="pt-6 flex flex-col xl:flex-row gap-4 w-full max-w-[90%] overflow-x-hidden">
                   <div className="flex-1 w-full overflow-x-clip">
                     <GitHubCalendar 
                       username="yashd-dev" 
@@ -100,13 +107,13 @@ export default function ContactSection() {
                   </div>
                 </div>
             {/* Action links */}
-            <div className="grid grid-cols-2 gap-5 max-sm:pt-20 max-sm:pb-5">
+            <div className="grid grid-cols-2 gap-5 pt-8 max-sm:pt-10 max-sm:pb-5">
               <div>
                 <a
-                  href="mailto:hello@yashd.in?subject=Enquiry%20from%20website"
+                  href="mailto:hey@yashd.in?subject=Enquiry%20from%20website"
                   className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
                 >
-                  hello@yashd.in
+                  hey@yashd.in
                 </a>
                 <span className="text-base leading-[1.375] block w-fit mb-2 text-fg-50 cursor-pointer">
                   Mumbai, India
@@ -136,6 +143,14 @@ export default function ContactSection() {
                   className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
                 >
                   GitHub
+                </a>
+                <a
+                  href={DISCUSSION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                >
+                  cal.com/yashd-dev/discussion
                 </a>
               </div>
             </div>

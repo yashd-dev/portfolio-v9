@@ -6,6 +6,7 @@ import { useActiveSection } from "@/app/hooks/useActiveSection";
 import { useTheme } from "@/app/context/ThemeContext";
 
 const ALL_SECTION_IDS = NAV_SECTIONS.map((s) => s.id);
+const DISCUSSION_LINK = "https://cal.com/yashd-dev/discussion";
 
 /**
  * Intro section with audience-selector tabs that switch the hero text.
@@ -13,6 +14,8 @@ const ALL_SECTION_IDS = NAV_SECTIONS.map((s) => s.id);
  */
 export default function IntroSection() {
   const [activeId, setActiveId] = useState(INTRO_OPTIONS[0].id);
+  const activeOption =
+    INTRO_OPTIONS.find((option) => option.id === activeId) ?? INTRO_OPTIONS[0];
   const { setTheme } = useTheme();
   const activeNavSection = useActiveSection(ALL_SECTION_IDS);
   const [showLeftMask, setShowLeftMask] = useState(false);
@@ -61,7 +64,7 @@ export default function IntroSection() {
         className="col-span-full lg:col-start-5 lg:col-end-[-1] xl:col-start-5 relative"
         style={{
           paddingTop: "calc(var(--spacing-xheight) - 11px)",
-          paddingBottom: "80px",
+          paddingBottom: "32px",
         }}
       >
         <div
@@ -109,7 +112,7 @@ export default function IntroSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mt-7 max-sm:mt-5">
           {INTRO_OPTIONS.map((opt) =>
             activeId === opt.id ? (
               opt.isHtml ? (
@@ -121,7 +124,7 @@ export default function IntroSection() {
                     lineHeight: 0.975,
                     letterSpacing: "-0.02em",
                     marginLeft: "-0.07em",
-                    minHeight: "calc(1em * 0.975 * 7)",
+                    minHeight: "calc(1em * 0.975 * 3.5)",
                   }}
                 />
               ) : (
@@ -132,7 +135,7 @@ export default function IntroSection() {
                     lineHeight: 0.975,
                     letterSpacing: "-0.02em",
                     marginLeft: "-0.07em",
-                    minHeight: "calc(1em * 0.975 * 7)",
+                    minHeight: "calc(1em * 0.975 * 3.5)",
                   }}
                 >
                   {opt.content}
@@ -141,6 +144,14 @@ export default function IntroSection() {
             ) : null,
           )}
         </div>
+        <a
+          href={DISCUSSION_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex w-fit items-center rounded-full border border-fg px-5 py-2.5 text-base leading-5 text-fg transition-colors hover:bg-fg hover:text-bg"
+        >
+          {activeOption.ctaLabel}
+        </a>
       </div>
     </section>
   );

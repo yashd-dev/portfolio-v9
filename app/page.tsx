@@ -38,13 +38,26 @@ export default function Home() {
     }
     window.scrollTo(0, 0);
 
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
     const t1 = setTimeout(() => setCoverVisible(false), 1750);
     const t2 = setTimeout(() => setIsLoading(false), 3250);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
     };
   }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }, [isLoading]);
 
   /* ---- Mobile nav toggle ---- */
   const toggleMobileNav = useCallback(() => {
@@ -113,6 +126,8 @@ export default function Home() {
         color: "var(--fg)",
         backgroundColor: "var(--bg)",
         minHeight: "100vh",
+        height: isLoading ? "100dvh" : undefined,
+        overflow: isLoading ? "hidden" : undefined,
       }}
     >
       {/* Cover intro animation */}
@@ -142,10 +157,11 @@ export default function Home() {
       <main
         className={isLoading ? "relative" : ""}
         style={{
-          transform: coverVisible ? "translateY(115vh)" : "none",
+          opacity: coverVisible ? 0 : 1,
           transition: isLoading
-            ? "transform 1.5s cubic-bezier(0.33, 0, 0.2, 1)"
+            ? "opacity 0.8s cubic-bezier(0.33, 0, 0.2, 1) 0.45s"
             : "none",
+          height: isLoading && coverVisible ? 0 : undefined,
           overflow: isLoading ? "hidden" : undefined,
           pointerEvents: isLoading ? "none" : undefined,
         }}

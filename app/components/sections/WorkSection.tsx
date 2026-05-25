@@ -11,7 +11,7 @@ export default function WorkSection() {
       className="flex w-full"
       style={{ padding: 0 }}
     >
-      <div className="w-full" style={{ paddingTop: "50vh", paddingBottom: "20px" }}>
+      <div className="w-full" style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}>
         <div className="w-full">
           <figure
             className="relative w-full"
