@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * About section — biography, accolades, press, and colophon.
+ * About section biography, accolades, press, and colophon.
  */
 export default function AboutSection() {
   return (
@@ -21,9 +21,12 @@ export default function AboutSection() {
           {/* Biography */}
           <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <p className="text-base leading-5">
-              I&apos;m a full-stack and headless Shopify developer pursuing Computer Engineering while building practical web products for real users.
-              <br /><br />
-              I focus on clean code, strong UI execution, and useful systems that can keep improving after launch.
+              I&apos;m a full-stack and headless Shopify developer pursuing
+              Computer Engineering while building practical web products for
+              real users.
+              <br />
+              <br />I focus on clean code, strong UI execution, and useful
+              systems that can keep improving after launch.
             </p>
           </div>
 
@@ -41,8 +44,13 @@ export default function AboutSection() {
               Education
             </h2>
             <p className="pt-3 text-[13px] leading-5">
-              <span className="block font-medium text-base">Bachelor of Technology in Computer Engineering</span>
-              <span className="block text-base">Mukesh Patel School of Technology Management and Engineering Mumbai</span>
+              <span className="block font-medium text-base">
+                Bachelor of Technology in Computer Engineering
+              </span>
+              <span className="block text-base">
+                Mukesh Patel School of Technology Management and Engineering
+                Mumbai
+              </span>
               <span className="block text-fg-50">2021-2027</span>
             </p>
           </div>

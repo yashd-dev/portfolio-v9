@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Values section — four big words + a descriptive paragraph.
+ * Values section four big words + a descriptive paragraph.
  */
 export default function ValuesSection() {
   return (

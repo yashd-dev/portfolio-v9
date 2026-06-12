@@ -28,7 +28,7 @@ export const INTRO_OPTIONS: IntroOption[] = [
     id: "recruiters",
     label: "For recruiters",
     content:
-      "I’m a full-stack engineer focused on polished web products, headless Shopify builds, APIs, integrations, and cloud setups.",
+      "I'm a full-stack engineer focused on polished web products, headless Shopify builds, APIs, integrations, and cloud setups.",
     ctaLabel: "Discuss a role",
   },
   {

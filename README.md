@@ -1,4 +1,4 @@
-# 🤓 Yash Deshpande — Creative Developer Portfolio (v9)
+# 🤓 Yash Deshpande Creative Developer Portfolio (v9)
 
 Welcome to the 9th iteration of my personal portfolio, yes i am this indecisive :)
 
@@ -24,15 +24,15 @@ Welcome to the 9th iteration of my personal portfolio, yes i am this indecisive 
 
 ## ⌨️ Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `G` | Toggle Master Grid Overlay |
-| `V` | Toggle Vertical Grid lines |
-| `H` | Toggle Horizontal Grid lines |
-| `N` | Navigate to Next Section (wraps around) |
-| `S` | Cycle through Theme Spectrum |
-| `B` / `W` | Toggle between Black & White themes |
-| `Esc` | Close Shortcuts Dialog |
+| Key       | Action                                  |
+| --------- | --------------------------------------- |
+| `G`       | Toggle Master Grid Overlay              |
+| `V`       | Toggle Vertical Grid lines              |
+| `H`       | Toggle Horizontal Grid lines            |
+| `N`       | Navigate to Next Section (wraps around) |
+| `S`       | Cycle through Theme Spectrum            |
+| `B` / `W` | Toggle between Black & White themes     |
+| `Esc`     | Close Shortcuts Dialog                  |
 
 ## 📂 Project Structure
 
@@ -44,11 +44,13 @@ Welcome to the 9th iteration of my personal portfolio, yes i am this indecisive 
 ## 🚀 Getting Started
 
 1. **Install Dependencies**:
+
    ```bash
    bun install
    ```
 
 2. **Run Development Server**:
+
    ```bash
    bun dev
    ```
@@ -59,4 +61,5 @@ Welcome to the 9th iteration of my personal portfolio, yes i am this indecisive 
    ```
 
 ---
+
 Made with ❤️ by [Yash Deshpande](https://yashd.in)

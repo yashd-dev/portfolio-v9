@@ -4,7 +4,7 @@ import Image from "next/image";
 import { PROJECTS } from "@/app/data/content";
 
 /**
- * Background section — professional history with the intro paragraph
+ * Background section professional history with the intro paragraph
  * followed by a list of companies with icons.
  */
 export default function BackgroundSection() {

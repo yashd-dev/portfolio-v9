@@ -7,6 +7,7 @@ interface AppNavProps {
   isMobileNavOpen: boolean;
   isMobileNavTransitioning: boolean;
   onItemClick: () => void;
+  onClose: () => void;
 }
 
 const sectionIds = NAV_SECTIONS.map((s) => s.id);
@@ -19,6 +20,7 @@ export default function AppNav({
   isMobileNavOpen,
   isMobileNavTransitioning,
   onItemClick,
+  onClose,
 }: AppNavProps) {
   const activeId = useActiveSection(sectionIds);
 
@@ -44,9 +46,9 @@ export default function AppNav({
 
   const handleClick = (id: string) => {
     onItemClick();
-    // Small delay on mobile so nav closes before scrolling
+    // Wait for the mobile overlay to unlock page scroll before navigating.
     if (isMobileNavOpen) {
-      setTimeout(() => scrollTo(id), 300);
+      setTimeout(() => scrollTo(id), 520);
     } else {
       scrollTo(id);
     }
@@ -56,22 +58,45 @@ export default function AppNav({
     <nav
       className={`
         fixed z-[100] select-none cursor-pointer
-        max-lg:inset-0 max-lg:z-[99]
+        top-[var(--spacing-xheight)] left-[var(--spacing-app-margin)]
+        max-lg:inset-0 max-lg:top-0 max-lg:left-0 max-lg:z-[120]
         ${isMobileNavTransitioning ? "max-lg:block" : "max-lg:hidden"}
         ${isMobileNavOpen ? "max-lg:opacity-100 max-lg:pointer-events-auto" : "max-lg:opacity-0 max-lg:pointer-events-none"}
         transition-opacity duration-200
       `}
       style={{
-        top: "var(--spacing-xheight)",
-        left: "var(--spacing-app-margin)",
-        paddingTop: "0",
-        // Mobile overlay bg
         ...(isMobileNavTransitioning
-          ? { backgroundColor: "var(--bg)", paddingTop: "var(--spacing-xheight)" }
+          ? { backgroundColor: "var(--bg)" }
           : {}),
       }}
+      aria-hidden={!isMobileNavTransitioning}
     >
-      <div>
+      <div
+        className="hidden max-lg:block absolute top-0 left-[var(--spacing-app-margin)] py-5"
+        aria-hidden="true"
+      >
+        <span
+          className="block leading-none"
+          style={{
+            fontSize: "var(--font-size-medium)",
+            marginLeft: "-0.07em",
+          }}
+        >
+          Y
+        </span>
+      </div>
+
+      <button
+        type="button"
+        className="hidden max-lg:flex absolute top-2 right-[var(--spacing-app-margin)] z-[1] h-12 w-12 items-center justify-center -mr-3 rounded-full cursor-pointer"
+        onClick={onClose}
+        aria-label="Close navigation"
+      >
+        <span className="absolute h-0.5 w-6 rotate-45 bg-fg" />
+        <span className="absolute h-0.5 w-6 -rotate-45 bg-fg" />
+      </button>
+
+      <div className="max-lg:pt-[var(--spacing-xheight)]">
         {NAV_SECTIONS.map((section, i) => (
           <div
             key={section.id}
@@ -101,6 +126,24 @@ export default function AppNav({
             {section.label}
           </div>
         ))}
+      </div>
+
+      <div
+        className="hidden max-lg:block absolute bottom-[var(--spacing-app-margin)] left-0 right-0 px-[var(--spacing-app-margin)]"
+        style={{
+          opacity: isMobileNavOpen ? 1 : 0,
+          transform: isMobileNavOpen ? "none" : "translateY(8px)",
+          transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
+          transitionDelay: isMobileNavOpen ? "0.28s" : "0s",
+        }}
+      >
+        <button
+          type="button"
+          className="w-full rounded-full bg-fg px-6 py-4 text-center text-bg transition-opacity duration-200 hover:opacity-85"
+          onClick={() => handleClick("contact")}
+        >
+          {"Let's talk"}
+        </button>
       </div>
     </nav>
   );
