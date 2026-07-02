@@ -67,12 +67,30 @@ export const PROJECTS: ProjectItem[] = [
     tech: "Headless Shopify, Next.js, Tailwind, Railway",
   },
   {
-    name: "6Pistons Media",
+    name: "Therapy With Kinnari",
     description:
-      "Built a fast automotive media platform with content feeds, video embeds, and a modern publishing flow.",
-    link: "https://6pistons.com",
-    image: "6pistons.png",
+      "Designed a calming therapy website with art therapy, workshops, resources, and seamless online session booking.",
+    link: "https://therapywithkinnari.com/",
+    image: "twk.png",
     featured: true,
+    tech: "Next.js, Sanity",
+  },
+  {
+    name: "Medizone Aesthetics",
+    description:
+      "Developed a premium B2B aesthetics platform showcasing PDO threads, training programs, and medical products.",
+    link: "https://www.medizoneaesthetics.com/",
+    image: "medizone.png",
+    featured: true,
+    tech: "Next.js, Sanity",
+  },
+  {
+    name: "Strive Consultancy",
+    description:
+      "Crafted a sharp business consultancy site with clean services pages and a strong presence.",
+    link: "http://striveconsultancy.yashd.in/",
+    image: "strive.png",
+    featured: false,
     tech: "Next.js, Tailwind, Vercel",
   },
   {
@@ -81,44 +99,26 @@ export const PROJECTS: ProjectItem[] = [
       "Designed and coded a veterinary healthcare platform with multilingual support and appointments.",
     link: "https://healthcare.yashd.in/",
     image: "sshealthcare.png",
-    featured: true,
+    featured: false,
     tech: "Next.js, Tailwind, Vercel, Google Translate",
   },
   {
-    name: "Strive Consultancy",
+    name: "ACM MPSTME Website",
     description:
-      "Crafted a sharp business consultancy site with clean services pages and a strong presence.",
-    link: "http://striveconsultancy.yashd.in/",
-    image: "strive.png",
-    featured: true,
-    tech: "Next.js, Tailwind, Vercel",
-  },
-  {
-    name: "Totso",
-    description:
-      "Built an abroad education assistant with payments, discovery, and application flows.",
-    link: "https://sangam.totso.io/",
-    image: "totso.png",
-    featured: true,
-    tech: "Next.js, Tailwind, EC2, Razorpay",
-  },
-  {
-    name: "Adeon",
-    description:
-      "Designed and developed a focused developer suite with clean interfaces and real utility.",
-    link: "https://adeon.me/",
-    image: "adeon.png",
+      "Built the official ACM student chapter website for events, blogs, resources, and community initiatives.",
+    link: "https://mpstmeacm.com",
+    image: "acm.png",
     featured: false,
-    tech: "Next.js, Tailwind, EC2, Shadcn",
+    tech: "Next.js, Tailwind, Hetzner",
   },
   {
-    name: "Neurotechh",
+    name: "Cyber Cypher Hackathon",
     description:
-      "Led full-stack development for a student developer community with tools and Sanity content.",
-    link: "https://neurotechh.xyz",
-    image: "neurotechh.png",
+      "Built the official hackathon website with registrations, event information, and sponsor showcases.",
+    link: "https://cybercypher.taqneeqfest.com/",
+    image: "cc.png",
     featured: false,
-    tech: "Next.js, Tailwind, Vercel, SanityCMS",
+    tech: "Next.js, Tailwind, Hetzner",
   },
   {
     name: "Taqneeq Fest App",
@@ -130,13 +130,41 @@ export const PROJECTS: ProjectItem[] = [
     tech: "Flutter, Firebase",
   },
   {
-    name: "ACM MPSTME Website",
+    name: "6Pistons Media",
     description:
-      "Built a performant student chapter site for events, resources, and community updates.",
-    link: "https://mpstmeacm.com",
-    image: "acm.png",
+      "Built a fast automotive media platform with content feeds, video embeds, and a modern publishing flow.",
+    link: "",
+    image: "6pistons.png",
     featured: false,
-    tech: "Next.js, Tailwind, Hetzner",
+    tech: "Next.js, Tailwind, Vercel",
+  },
+
+  {
+    name: "Totso",
+    description:
+      "Built an abroad education assistant with payments, discovery, and application flows.",
+    link: "",
+    image: "totso.png",
+    featured: false,
+    tech: "Next.js, Tailwind, EC2, Razorpay",
+  },
+  {
+    name: "Adeon",
+    description:
+      "Designed and developed a focused developer suite with clean interfaces and real utility.",
+    link: "",
+    image: "adeon.png",
+    featured: false,
+    tech: "Next.js, Tailwind, EC2, Shadcn",
+  },
+  {
+    name: "Neurotechh",
+    description:
+      "Led full-stack development for a student developer community with tools and Sanity content.",
+    link: "",
+    image: "neurotechh.png",
+    featured: false,
+    tech: "Next.js, Tailwind, Vercel, SanityCMS",
   },
 ];
 
