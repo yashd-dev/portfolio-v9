@@ -66,15 +66,15 @@ export const PROJECTS: ProjectItem[] = [
     featured: true,
     tech: "Headless Shopify, Next.js, Tailwind, Railway",
   },
-  {
-    name: "Therapy With Kinnari",
-    description:
-      "Designed a calming therapy website with art therapy, workshops, resources, and seamless online session booking.",
-    link: "https://therapywithkinnari.com/",
-    image: "twk.png",
-    featured: true,
-    tech: "Next.js, Sanity",
-  },
+  // {
+  //   name: "Therapy With Kinnari",
+  //   description:
+  //     "Designed a calming therapy website with art therapy, workshops, resources, and seamless online session booking.",
+  //   link: "https://therapywithkinnari.com/",
+  //   image: "twk.png",
+  //   featured: true,
+  //   tech: "Next.js, Sanity",
+  // },
   {
     name: "Medizone Aesthetics",
     description:
