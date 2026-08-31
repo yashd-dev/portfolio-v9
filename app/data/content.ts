@@ -20,7 +20,7 @@ export const INTRO_OPTIONS: IntroOption[] = [
   {
     id: "anyone",
     label: "For everyone",
-    content: `<span class="relative inline-block group cursor-crosshair"><span class="underline decoration-[2px] underline-offset-[0.1em]">Hello there</span><img src="/images/kenobi.png" alt="General Kenobi!" class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 md:left-auto md:right-full md:translate-x-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:mb-0 md:mr-6 w-[200px] sm:w-[280px] rounded-3xl opacity-0 scale-90 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:scale-100 z-50 shadow-2xl origin-bottom md:origin-right" /></span>, I build polished full-stack and headless Shopify sites with clean code and sharp UI.`,
+    content: `<span class="relative inline-block group cursor-crosshair"><span class="underline decoration-[2px] underline-offset-[0.1em]">Hello there</span><img src="/images/kenobi.png" alt="General Kenobi!" class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 md:left-auto md:right-full md:translate-x-0 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:mb-0 md:mr-6 w-[200px] sm:w-[280px] rounded-3xl opacity-0 scale-90 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:scale-100 z-50 shadow-2xl origin-bottom md:origin-right" /></span>, I design and build polished websites that feel considered, work smoothly, and can grow into serious products.`,
     ctaLabel: "Talk now",
     isHtml: true,
   },
@@ -28,21 +28,28 @@ export const INTRO_OPTIONS: IntroOption[] = [
     id: "recruiters",
     label: "For recruiters",
     content:
-      "I'm a full-stack engineer focused on polished web products, headless Shopify builds, APIs, integrations, and cloud setups.",
+      "I'm a web designer and developer focused on polished interfaces, thoughtful fullstack execution, and production-ready builds.",
     ctaLabel: "Discuss a role",
+  },
+  {
+    id: "ecommerce-businesses",
+    label: "For ecommerce",
+    content:
+      "I design storefronts that feel premium before they ask people to buy, then build the Shopify pieces that make products, carts, checkout, and content behave.",
+    ctaLabel: "Talk Shopify",
   },
   {
     id: "product-designers",
     label: "For product designers",
     content:
-      "I turn Figma into responsive, production-ready UI with crisp motion, careful details, and strong commerce flows.",
+      "I turn Figma into responsive, production-ready UI with crisp motion, careful details, and enough engineering taste to protect the design.",
     ctaLabel: "Plan the build",
   },
   {
     id: "engineers",
     label: "For engineers",
     content:
-      "I write clean code across frontend, backend, APIs, integrations, and headless Shopify storefronts.",
+      "I write clean frontend code, connect the pieces behind it, and keep APIs, integrations, and deployments quiet and dependable.",
     ctaLabel: "Talk architecture",
   },
 ];
@@ -60,7 +67,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Actually Fair",
     description:
-      "Built a transparent e-commerce platform with clean shopping flows and flat 14% margins over cost.",
+      "Designed and built a transparent shopping experience with clear product pages, calm flows, and headless Shopify underneath.",
     link: "https://actuallyfair.in/",
     image: "actuallyfair.png",
     featured: true,
@@ -69,7 +76,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Therapy With Kinnari",
     description:
-      "Designed a calming therapy website with art therapy, workshops, resources, and seamless online session booking.",
+      "Designed a calming therapy website for sessions, workshops, resources, and a softer booking experience.",
     link: "https://therapywithkinnari.com/",
     image: "twk.png",
     featured: true,
@@ -78,7 +85,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Medizone Aesthetics",
     description:
-      "Developed a premium B2B aesthetics platform showcasing PDO threads, training programs, and medical products.",
+      "Created a premium B2B aesthetics website for PDO threads, training programs, and medical product discovery.",
     link: "https://www.medizoneaesthetics.com/",
     image: "medizone.png",
     featured: true,
@@ -87,7 +94,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Strive Consultancy",
     description:
-      "Crafted a sharp business consultancy site with clean services pages and a strong presence.",
+      "Crafted a sharp consultancy website with focused services, restrained visuals, and a clearer business presence.",
     link: "http://striveconsultancy.yashd.in/",
     image: "strive.png",
     featured: false,
@@ -96,7 +103,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "SS Healthcare",
     description:
-      "Designed and coded a veterinary healthcare platform with multilingual support and appointments.",
+      "Designed and coded a veterinary healthcare website with multilingual content and appointment flows.",
     link: "https://healthcare.yashd.in/",
     image: "sshealthcare.png",
     featured: false,
@@ -105,7 +112,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "ACM MPSTME Website",
     description:
-      "Built the official ACM student chapter website for events, blogs, resources, and community initiatives.",
+      "Built the official ACM student chapter website with a clean structure for events, blogs, resources, and community work.",
     link: "https://mpstmeacm.com",
     image: "acm.png",
     featured: false,
@@ -114,7 +121,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Cyber Cypher Hackathon",
     description:
-      "Built the official hackathon website with registrations, event information, and sponsor showcases.",
+      "Designed and built the hackathon website for registrations, event details, and sponsor showcases.",
     link: "https://cybercypher.taqneeqfest.com/",
     image: "cc.png",
     featured: false,
@@ -123,7 +130,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Taqneeq Fest App",
     description:
-      "Shipped a Flutter fest app with real-time Firebase updates for 500+ attendees.",
+      "Shipped a practical fest app with schedules, updates, and Firebase-backed information for 500+ attendees.",
     link: "https://www.taqneeqfest.com/app",
     image: "tq.png",
     featured: false,
@@ -132,7 +139,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "6Pistons Media",
     description:
-      "Built a fast automotive media platform with content feeds, video embeds, and a modern publishing flow.",
+      "Built a fast automotive media site with a visual content feed, video embeds, and a clean publishing flow.",
     link: "",
     image: "6pistons.png",
     featured: false,
@@ -142,7 +149,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Totso",
     description:
-      "Built an abroad education assistant with payments, discovery, and application flows.",
+      "Built an abroad education product with discovery, application flows, payments, and a clean student-facing interface.",
     link: "",
     image: "totso.png",
     featured: false,
@@ -151,7 +158,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Adeon",
     description:
-      "Designed and developed a focused developer suite with clean interfaces and real utility.",
+      "Designed and developed a focused developer suite with clean interfaces and practical day-to-day utility.",
     link: "",
     image: "adeon.png",
     featured: false,
@@ -160,7 +167,7 @@ export const PROJECTS: ProjectItem[] = [
   {
     name: "Neurotechh",
     description:
-      "Led full-stack development for a student developer community with tools and Sanity content.",
+      "Led the build for a student developer community website with useful tools, Sanity content, and a maintainable base.",
     link: "",
     image: "neurotechh.png",
     featured: false,

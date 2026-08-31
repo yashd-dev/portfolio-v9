@@ -25,11 +25,11 @@ export default function BackgroundSection() {
           {/* Intro description */}
           <div className="col-span-full max-md:col-span-full">
             <p className="text-base leading-5">
-              I build across the stack: product UI, APIs, data models,
-              deployments, headless Shopify storefronts, and the small
-              interaction details that make software feel finished. Here are a
-              few projects I have shipped for clients, communities, startups,
-              and personal experiments.
+              Most of my work starts with the interface: layout, rhythm,
+              interaction details, and the small choices that make a site feel
+              intentional. From there I build the product around it, whether
+              that means a Shopify storefront, a content system, a booking
+              flow, or the backend pieces needed to keep it running.
             </p>
           </div>
 

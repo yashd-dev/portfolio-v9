@@ -21,12 +21,13 @@ export default function AboutSection() {
           {/* Biography */}
           <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <p className="text-base leading-5">
-              I&apos;m a full-stack and headless Shopify developer pursuing
-              Computer Engineering while building practical web products for
+              I&apos;m a web designer and developer pursuing Computer
+              Engineering while building practical websites and products for
               real users.
               <br />
-              <br />I focus on clean code, strong UI execution, and useful
-              systems that can keep improving after launch.
+              <br />I care most about how things look, feel, and work in the
+              browser. I can take that through Shopify, content, APIs, and
+              deployment when the project needs it.
             </p>
           </div>
 

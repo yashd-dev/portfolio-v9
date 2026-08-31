@@ -38,14 +38,15 @@ export default function ValuesSection() {
           {/* Description */}
           <div className="col-start-2 col-end-[-1] max-md:col-span-full">
             <p className="text-base leading-5">
-              I care about thoughtful interfaces, clean systems, and work that
-              holds up after launch. I use AI as a tool, but I still rewrite,
+              I care about websites with a point of view: clear hierarchy,
+              good spacing, sharp interaction, and pages that feel finished
+              without shouting. I use AI as a tool, but I still rewrite,
               refine, and own the final result.
             </p>
             <p className="text-base leading-5 pt-4">
               I work best with people who value craft: designers with strong
-              details, product teams with clear goals, and engineers who care
-              about maintainability.
+              details, founders who need a polished web presence, and engineers
+              who care about maintainability.
             </p>
           </div>
         </div>
