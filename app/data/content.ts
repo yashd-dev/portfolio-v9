@@ -109,70 +109,6 @@ export const PROJECTS: ProjectItem[] = [
     featured: false,
     tech: "Next.js, Tailwind, Vercel, Google Translate",
   },
-  {
-    name: "ACM MPSTME Website",
-    description:
-      "Built the official ACM student chapter website with a clean structure for events, blogs, resources, and community work.",
-    link: "https://mpstmeacm.com",
-    image: "acm.png",
-    featured: false,
-    tech: "Next.js, Tailwind, Hetzner",
-  },
-  {
-    name: "Cyber Cypher Hackathon",
-    description:
-      "Designed and built the hackathon website for registrations, event details, and sponsor showcases.",
-    link: "https://cybercypher.taqneeqfest.com/",
-    image: "cc.png",
-    featured: false,
-    tech: "Next.js, Tailwind, Hetzner",
-  },
-  {
-    name: "Taqneeq Fest App",
-    description:
-      "Shipped a practical fest app with schedules, updates, and Firebase-backed information for 500+ attendees.",
-    link: "https://www.taqneeqfest.com/app",
-    image: "tq.png",
-    featured: false,
-    tech: "Flutter, Firebase",
-  },
-  {
-    name: "6Pistons Media",
-    description:
-      "Built a fast automotive media site with a visual content feed, video embeds, and a clean publishing flow.",
-    link: "",
-    image: "6pistons.png",
-    featured: false,
-    tech: "Next.js, Tailwind, Vercel",
-  },
-
-  {
-    name: "Totso",
-    description:
-      "Built an abroad education product with discovery, application flows, payments, and a clean student-facing interface.",
-    link: "",
-    image: "totso.png",
-    featured: false,
-    tech: "Next.js, Tailwind, EC2, Razorpay",
-  },
-  {
-    name: "Adeon",
-    description:
-      "Designed and developed a focused developer suite with clean interfaces and practical day-to-day utility.",
-    link: "",
-    image: "adeon.png",
-    featured: false,
-    tech: "Next.js, Tailwind, EC2, Shadcn",
-  },
-  {
-    name: "Neurotechh",
-    description:
-      "Led the build for a student developer community website with useful tools, Sanity content, and a maintainable base.",
-    link: "",
-    image: "neurotechh.png",
-    featured: false,
-    tech: "Next.js, Tailwind, Vercel, SanityCMS",
-  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -196,7 +132,6 @@ export const NAV_SECTIONS = [
   { id: "intro", label: "Intro" },
   { id: "work", label: "Work" },
   { id: "values", label: "Beliefs" },
-  { id: "background", label: "Projects" },
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ] as const;

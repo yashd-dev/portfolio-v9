@@ -359,6 +359,22 @@ p {
   }
 }
 
+@keyframes collage-pan {
+  0% {
+    background-position: center top;
+  }
+  50% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+
+.collage-window-image {
+  animation: collage-pan 48s linear infinite;
+}
+
 /* ============================================================================
    Image overlays for themed color tinting
    ============================================================================ */

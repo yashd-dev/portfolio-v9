@@ -11,8 +11,6 @@ import GridOverlay from "@/app/components/GridOverlay";
 import CoverSection from "@/app/components/sections/CoverSection";
 import IntroSection from "@/app/components/sections/IntroSection";
 import WorkSection from "@/app/components/sections/WorkSection";
-import ValuesSection from "@/app/components/sections/ValuesSection";
-import BackgroundSection from "@/app/components/sections/BackgroundSection";
 import AboutSection from "@/app/components/sections/AboutSection";
 import ContactSection from "@/app/components/sections/ContactSection";
 import { NAV_SECTIONS } from "@/app/data/content";
@@ -201,8 +199,6 @@ export default function Home() {
       >
         <IntroSection />
         <WorkSection />
-        <ValuesSection />
-        <BackgroundSection />
         <AboutSection />
         <ContactSection />
       </main>
