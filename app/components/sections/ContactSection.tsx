@@ -20,7 +20,7 @@ export default function ContactSection() {
   return (
     <section
       id="section-contact"
-      className="grid gap-5"
+      className="grid gap-8"
       style={{
         padding: `0 var(--spacing-app-margin)`,
         gridTemplateColumns: "repeat(12, 1fr)",
@@ -33,12 +33,12 @@ export default function ContactSection() {
           paddingBottom: "var(--spacing-app-margin)",
         }}
       >
-        <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-5">
+        <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-8">
           {/* Text side */}
           <div className="flex flex-col justify-between">
             <div>
               {/* Pulse indicator */}
-              <div className="relative mb-2">
+              <div className="relative mb-4">
                 <div className="relative flex items-center gap-2">
                   <div className="relative w-6 h-6 flex items-center justify-center">
                     <div className="absolute w-2 h-2 rounded-full bg-fg" />
@@ -78,7 +78,7 @@ export default function ContactSection() {
               </div>
             </div>
  {/* GitHub Contribution Graph */}
-                <div className="pt-6 flex flex-col xl:flex-row gap-4 w-full max-w-[90%] overflow-x-hidden">
+                <div className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
                   <div className="flex-1 w-full overflow-x-clip">
                     <GitHubCalendar 
                       username="yashd-dev" 
@@ -87,17 +87,17 @@ export default function ContactSection() {
                       blockSize={7}
                     />
                   </div>
-                  <div className="flex flex-row xl:flex-col gap-2 justify-start flex-wrap mt-2 xl:mt-0 max-h-fit">
+                  <div className="flex flex-row xl:flex-col gap-3 justify-start flex-wrap mt-3 xl:mt-0 max-h-fit">
                     {years.map((year) => {
                       const isActive = (calendarYear === year) || (calendarYear === undefined && year === today);
                       return (
                         <button
                           key={year}
                           onClick={() => setCalendarYear(year === calendarYear ? undefined : year)}
-                          className={`px-3 py-1.5 text-sm rounded-md transition-colors border bg-fg-5 ${
+                           className={`px-4 py-2 text-sm rounded-md transition-colors bg-fg-5 ${
                             isActive
-                              ? "text-fg border-fg bg-fg"
-                              : "text-fg-50 hover:text-fg border-transparent hover:border-fg-25"
+                              ? "text-bg bg-fg"
+                              : "text-fg-50 hover:text-fg"
                           }`}
                         >
                           {year}
@@ -107,22 +107,22 @@ export default function ContactSection() {
                   </div>
                 </div>
             {/* Action links */}
-            <div className="grid grid-cols-2 gap-5 pt-8 max-sm:pt-10 max-sm:pb-5">
+            <div className="grid grid-cols-2 gap-8 pt-12 max-sm:pt-12 max-sm:pb-7">
               <div>
                 <a
                   href="mailto:hey@yashd.in?subject=Enquiry%20from%20website"
-                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                  className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 hover:text-fg"
                 >
                   hey@yashd.in
                 </a>
-                <span className="text-base leading-[1.375] block w-fit mb-2 text-fg-50 cursor-pointer">
+                <span className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 cursor-pointer">
                   Mumbai, India
                 </span>
                 <a
                   href="https://x.com/yashd_dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                  className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 hover:text-fg"
                 >
                   Twitter
                 </a>
@@ -132,7 +132,7 @@ export default function ContactSection() {
                   href="https://www.linkedin.com/in/yashd-dev/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                  className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 hover:text-fg"
                 >
                   LinkedIn
                 </a>
@@ -140,7 +140,7 @@ export default function ContactSection() {
                   href="https://github.com/yashd-dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                  className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 hover:text-fg"
                 >
                   GitHub
                 </a>
@@ -148,7 +148,7 @@ export default function ContactSection() {
                   href={DISCUSSION_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base leading-[1.375] border-b border-fg-25 hover:border-fg block w-fit mb-2"
+                  className="text-base leading-[1.375] block w-fit mb-3 text-fg-50 hover:text-fg"
                 >
                   cal.com/yashd-dev/discussion
                 </a>

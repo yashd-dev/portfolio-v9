@@ -1,6 +1,7 @@
 "use client";
 
 import { PROJECTS } from "@/app/data/content";
+import ProcessSection from "@/app/components/sections/ProcessSection";
 import ValuesSection from "@/app/components/sections/ValuesSection";
 import Image from "next/image";
 import {
@@ -46,15 +47,15 @@ export default function WorkSection() {
         style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
       >
         <div
-          className="grid gap-5"
+          className="grid gap-8"
           style={{
             padding: `0 var(--spacing-app-margin)`,
             gridTemplateColumns: "repeat(12, 1fr)",
           }}
         >
-          <figure className="relative col-start-2 col-end-13 h-[62vh] w-full overflow-hidden rounded-xl shadow-[0_14px_40px_rgb(0_0_0_/_0.12)] bg-neutral-100 p-2 border border-black/10">
+          <figure className="relative col-start-2 col-end-13 h-[62vh] w-full overflow-hidden rounded-xl bg-fg-5 p-3">
             <div
-              className="collage-window-image h-full w-full rounded-2xl border border-black/10"
+              className="collage-window-image h-full w-full rounded-2xl"
               style={{
                 backgroundImage: 'url("/images/collage.png")',
                 backgroundSize: "cover",
@@ -69,9 +70,10 @@ export default function WorkSection() {
         </div>
 
         <ValuesSection />
+        <ProcessSection />
 
         <div
-          className="grid gap-5 pt-[var(--spacing-section)]"
+          className="grid gap-8 pt-[var(--spacing-section)]"
           style={{
             paddingLeft: `var(--spacing-app-margin)`,
             paddingRight: `var(--spacing-app-margin)`,
@@ -79,19 +81,34 @@ export default function WorkSection() {
           }}
         >
           <div className="col-start-2 col-end-13 max-lg:col-start-1">
+            <div className="grid grid-cols-11 gap-8 pb-8 max-lg:grid-cols-1">
+              <div className="col-span-4 max-w-[520px] max-lg:col-span-1">
+                <p className="mb-3 text-sm text-fg-50">Selected projects</p>
+                <h2 className="text-[var(--font-size-title)] leading-[1.05] tracking-[-0.035em]">
+                  Built for real launches, not just screenshots.
+                </h2>
+              </div>
+              <div className="col-start-7 col-end-11 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
+                <p className="max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
+                  A few websites and products where I handled the interface,
+                  build, polish, integrations, and deployment details that make
+                  the final experience feel complete.
+                </p>
+              </div>
+            </div>
             {PROJECTS.map((project, index) => (
               <article
                 key={project.name}
-                className="grid grid-cols-11 gap-5 border-t border-fg-15 py-12 first:border-t-0 last:border-b max-lg:grid-cols-1 max-lg:gap-6"
+                className="grid grid-cols-11 gap-8 py-16 max-lg:grid-cols-1 max-lg:gap-8"
               >
                 <a
                   href={project.link || undefined}
                   target={project.link ? "_blank" : undefined}
                   rel={project.link ? "noreferrer" : undefined}
                   aria-label={project.link ? `Open ${project.name}` : undefined}
-                  className="group relative col-span-5 block overflow-hidden rounded-2xl border border-black/10 bg-neutral-100 shadow-[0_14px_40px_rgb(0_0_0_/_0.10)] max-lg:col-span-1"
+                  className="group relative col-span-5 block overflow-hidden rounded-2xl bg-fg-5 max-lg:col-span-1"
                 >
-                  <span className="absolute left-4 top-4 z-[1] rounded-full bg-white/85 px-3 py-1 text-xs tabular-nums text-black/70 backdrop-blur">
+                  <span className="absolute left-4 top-4 z-[1] rounded-full bg-bg/85 px-3 py-1 text-xs tabular-nums text-fg-50 backdrop-blur">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <Image
@@ -107,17 +124,17 @@ export default function WorkSection() {
                   <p className="mb-4 text-sm text-fg-50 tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="text-[clamp(34px,4vw,64px)] leading-[0.95] tracking-[-0.05em]">
+                  <h2 className="text-[var(--font-size-title)] leading-[1.05] tracking-[-0.035em]">
                     {project.name}
                   </h2>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-7 flex flex-wrap gap-3">
                     {project.tech.split(", ").map((tech) => {
                       const icon = STACK_ICONS[tech];
 
                       return (
                         <span
                           key={tech}
-                          className="flex h-9 min-w-9 items-center justify-center rounded-full border border-fg-15 px-2 text-fg-50"
+                           className="flex h-10 min-w-10 items-center justify-center rounded-full bg-fg-5 px-3 text-fg-50"
                           title={tech}
                           aria-label={tech}
                         >
@@ -136,7 +153,7 @@ export default function WorkSection() {
                       );
                     })}
                   </div>
-                  <p className="mt-6 max-w-[620px] text-[var(--font-size-medium)] leading-[1.2] text-fg-50">
+                  <p className="mt-8 max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
                     {project.description}
                   </p>
                 </div>
@@ -147,7 +164,7 @@ export default function WorkSection() {
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex h-12 w-full items-center justify-center rounded-full border border-fg-15 text-xl transition-colors hover:bg-fg hover:text-bg max-lg:w-24"
+                      className="flex h-12 w-full items-center justify-center rounded-full bg-fg-5 text-xl transition-colors hover:bg-fg hover:text-bg max-lg:w-24"
                       aria-label={`Open ${project.name}`}
                     >
                       ↗

@@ -44,7 +44,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState(16);
-  const [gridVisible, setGridVisible] = useState(true);
+  const [gridVisible, setGridVisible] = useState(false);
   const [verticalGridVisible, setVerticalGridVisible] = useState(true);
   const [horizontalGridVisible, setHorizontalGridVisible] = useState(false);
 

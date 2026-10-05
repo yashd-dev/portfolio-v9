@@ -5,7 +5,6 @@ import { useTheme } from "@/app/context/ThemeContext";
 
 import AppHeader from "@/app/components/AppHeader";
 import AppNav from "@/app/components/AppNav";
-import AppAside from "@/app/components/AppAside";
 import GridControls from "@/app/components/GridControls";
 import GridOverlay from "@/app/components/GridOverlay";
 import CoverSection from "@/app/components/sections/CoverSection";
@@ -180,7 +179,6 @@ export default function Home() {
           onItemClick={closeMobileNav}
           onClose={closeMobileNav}
         />
-        <AppAside />
         <GridControls />
       </div>
 

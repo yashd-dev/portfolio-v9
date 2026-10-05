@@ -19,7 +19,7 @@ export default function GridControls() {
 
   return (
     <aside
-      className="fixed z-[100] flex items-center bg-fg-5 backdrop-blur-sm rounded-3xl p-1 shadow-sm border border-fg-5"
+      className="fixed z-[100] flex items-center bg-fg-5 backdrop-blur-sm rounded-xl p-2"
       style={{
         right: "var(--spacing-app-margin)",
         bottom: "calc(var(--spacing-app-margin) - 12px)",
@@ -42,7 +42,7 @@ export default function GridControls() {
         </button>
 
         {/* Separator */}
-        <div className="w-px h-4 bg-fg-10 mx-0.5" />
+        <div className="w-px h-4 bg-fg-10 mx-1" />
 
         {/* Toggle Horizontal Grid */}
         <button

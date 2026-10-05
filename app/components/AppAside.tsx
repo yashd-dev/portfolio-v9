@@ -7,49 +7,40 @@ const SLIDER_HEIGHT = 368;
 const DOT_COUNT = 17;
 
 /**
- * Fixed bottom-left aside with theme slider (sun icon)
- * and grid overlay toggle.
+ * Top pill controls for theme, shortcuts, and grid overlay.
  */
 export default function AppAside() {
   const { theme, setTheme, toggleGrid } = useTheme();
   const [sliderVisible, setSliderVisible] = useState(false);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
-  // Bottom position for the sun icon that tracks the slider
-  const iconBottom = sliderVisible ? (theme / 16) * 320 : 0;
+  const iconOffset = sliderVisible ? (theme / 16) * 320 : 0;
 
   return (
     <>
-      <aside
-        className="fixed z-[100]"
-        style={{
-          left: "calc(var(--spacing-app-margin) - 12px)",
-          bottom: "calc(var(--spacing-app-margin) - 12px)",
-        }}
-      >
-        <div className="flex flex-col gap-2">
+      <div className="contents max-lg:hidden">
           {/* Theme slider button */}
           <div
-            className="relative w-12 rounded-3xl bg-fg-5 backdrop-blur-sm cursor-pointer hover:bg-fg-15 active:bg-fg-20"
+            className="relative h-10 w-10 cursor-pointer rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
             style={{
-              height: sliderVisible ? `${SLIDER_HEIGHT}px` : "48px",
-              transition: `height 0.3s ease ${sliderVisible ? "0s" : "0.62s"}`,
+              width: sliderVisible ? `${SLIDER_HEIGHT}px` : "40px",
+              transition: `width 0.3s ease ${sliderVisible ? "0s" : "0.62s"}`,
             }}
             onMouseEnter={() => setSliderVisible(true)}
             onMouseLeave={() => setSliderVisible(false)}
           >
-            {/* Sun icon – moves up as theme changes */}
+            {/* Sun icon tracks the active theme along the horizontal slider. */}
             <div
-              className="absolute flex items-center justify-center w-12 h-12"
+              className="absolute flex h-10 w-10 items-center justify-center"
               style={{
-                bottom: `${iconBottom}px`,
-                transition: `bottom ${sliderVisible ? "0.3s" : "0.5s"} ease-in-out`,
+                left: `${iconOffset}px`,
+                transition: `left ${sliderVisible ? "0.3s" : "0.5s"} ease-in-out`,
               }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
+                width="22"
+                height="22"
                 viewBox="0 0 32 32"
                 className="fill-fg"
               >
@@ -59,17 +50,15 @@ export default function AppAside() {
 
             {/* Rotated slider track with dots */}
             <div
-              className="absolute w-12 h-12 rounded-3xl origin-top-left"
+              className="absolute h-10 w-10 rounded-full"
               style={{
-                transform: "rotate(-90deg)",
-                bottom: "-48px",
                 width: sliderVisible ? `${SLIDER_HEIGHT}px` : "48px",
                 transition: `width 0.3s ease ${sliderVisible ? "0s" : "0.62s"}`,
                 pointerEvents: sliderVisible ? "auto" : "none",
               }}
             >
               {/* Dots */}
-              <div className="absolute w-full px-[22px] flex justify-between top-[22px]">
+              <div className="absolute top-[18px] flex w-full justify-between px-[18px]">
                 {Array.from({ length: DOT_COUNT }).map((_, i) => {
                   /* Every 4th dot (indices 0,4,8,12,16) is fully opaque */
                   const isBright = i % 4 === 0;
@@ -102,7 +91,7 @@ export default function AppAside() {
                 step={1}
                 value={theme}
                 onChange={(e) => setTheme(Number(e.target.value))}
-                className="absolute w-full h-12 cursor-pointer opacity-0"
+                className="absolute h-10 w-full cursor-pointer opacity-0"
                 aria-label="Theme selector"
               />
             </div>
@@ -111,14 +100,14 @@ export default function AppAside() {
           {/* Keyboard shortcuts button */}
           <button
             onClick={() => setShortcutsOpen(true)}
-            className="flex items-center justify-center w-12 h-12 rounded-3xl bg-fg-5 backdrop-blur-sm cursor-pointer hover:bg-fg-15 active:bg-fg-20"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
             aria-label="Keyboard shortcuts"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               fill="none"
               className="stroke-fg"
               strokeWidth="1.5"
@@ -135,21 +124,20 @@ export default function AppAside() {
           {/* Grid overlay toggle */}
           <button
             onClick={toggleGrid}
-            className="flex items-center justify-center w-12 h-12 rounded-3xl bg-fg-5 backdrop-blur-sm cursor-pointer hover:bg-fg-15 active:bg-fg-20"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
             aria-label="Toggle grid overlay"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
+              width="22"
+              height="22"
               viewBox="0 0 32 32"
               className="fill-fg"
             >
               <path d="M5 28h2V4H5v24zm5 0h2V4h-2v24zm5 0h2V4h-2v24zm5 0h2V4h-2v24zm5-24v24h2V4h-2z" />
             </svg>
           </button>
-        </div>
-      </aside>
+      </div>
 
       {/* Keyboard Shortcuts Dialog */}
       {shortcutsOpen && (
@@ -158,7 +146,7 @@ export default function AppAside() {
           onClick={() => setShortcutsOpen(false)}
         >
           <div
-            className="w-full max-w-sm rounded-[24px] bg-bg border border-fg-10 p-6 shadow-2xl"
+            className="w-full max-w-sm rounded-xl bg-bg p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-6">
@@ -184,34 +172,34 @@ export default function AppAside() {
               </button>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Toggle Master Grid Overlay</span>
-                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">G</kbd>
+                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">G</kbd>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Toggle Vertical Grid</span>
-                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">V</kbd>
+                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">V</kbd>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Toggle Horizontal Grid</span>
-                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">H</kbd>
+                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">H</kbd>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Toggle Black / White</span>
                 <div className="flex items-center gap-2">
-                  <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">B</kbd>
+                  <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">B</kbd>
                   <span className="text-fg-40 text-sm">or</span>
-                  <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">W</kbd>
+                  <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">W</kbd>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Next Section Navigation</span>
-                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">N</kbd>
+                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">N</kbd>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-fg-70">Cycle Theme Spectrum</span>
-                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none border border-fg-10 shadow-sm">S</kbd>
+                <kbd className="px-3 py-1.5 rounded-lg bg-fg-5 text-fg font-mono text-sm leading-none">S</kbd>
               </div>
             </div>
           </div>

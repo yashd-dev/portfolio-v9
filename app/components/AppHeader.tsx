@@ -26,7 +26,7 @@ export default function AppHeader({
       <div className="flex items-center justify-between py-5 max-lg:py-2">
         {/* Brand */}
         <div
-          className="py-3 cursor-default"
+          className="cursor-default py-3 max-lg:block lg:hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

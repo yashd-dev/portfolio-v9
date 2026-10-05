@@ -19,15 +19,16 @@
   --color-bg-0: var(--bg-0);
 
   /* Font sizes */
-  --font-size-huge: clamp(34px, 4.8vw, 4.8vw);
-  --font-size-large: clamp(26px, 1.81vw, 1.81vw);
+  --font-size-huge: clamp(34px, 6.24vw, 34px);
+  --font-size-large: clamp(23px, 1.65vw, 34px);
+  --font-size-title: 34px;
   --font-size-medium: 26px;
   --font-size-regular: 16px;
 
   /* Grid */
   --spacing-app-margin: 40px;
   --spacing-xheight: 140px;
-  --spacing-section: 88px;
+  --spacing-section: 116px;
 }
 
 /* ============================================================================
@@ -301,6 +302,18 @@ body {
     background-color 0.5s ease;
 }
 
+* {
+  box-shadow: none !important;
+}
+
+[class*="rounded"] {
+  border-radius: 12px !important;
+}
+
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
 /* Enhancing hierarchy for body vs headers, especially on mobile */
 p {
   font-weight: 400;
@@ -369,6 +382,91 @@ p {
   100% {
     background-position: center top;
   }
+}
+
+@keyframes section-label {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes process-card-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.process-card {
+  animation: process-card-reveal 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.process-surface {
+  background-color: var(--fg-5);
+  border-color: var(--fg-10);
+  color: var(--fg);
+}
+
+.process-panel {
+  background-color: var(--bg);
+  border-color: var(--fg-20);
+}
+
+.process-line-strong {
+  background-color: var(--fg);
+}
+
+.process-line-mid {
+  background-color: var(--fg-50);
+}
+
+.process-line-soft {
+  background-color: var(--fg-20);
+}
+
+.process-border-strong {
+  border-color: var(--fg);
+}
+
+.process-border-soft {
+  border-color: var(--fg-20);
+}
+
+.process-fill-strong {
+  background-color: var(--fg);
+}
+
+.process-fill-soft {
+  background-color: var(--fg-10);
+}
+
+.process-accent {
+  background-color: var(--fg);
+}
+
+.process-accent-soft {
+  background-color: var(--fg-15);
+}
+
+.process-accent-line {
+  background-color: var(--fg-25);
+}
+
+.process-text-muted {
+  color: var(--fg-50);
 }
 
 .collage-window-image {
@@ -441,8 +539,9 @@ p {
 
 @media (max-width: 1280px) {
   :root {
-    --font-size-huge: clamp(34px, 5.85vw, 5.85vw);
-    --font-size-large: clamp(26px, 2.24vw, 2.24vw);
+    --font-size-huge: clamp(34px, 7.61vw, 34px);
+    --font-size-large: clamp(23px, 2.04vw, 34px);
+    --font-size-title: 34px;
   }
 }
 
@@ -450,9 +549,10 @@ p {
   :root {
     --spacing-app-margin: 20px;
     --spacing-xheight: 108px;
-    --spacing-section: 64px;
-    --font-size-huge: clamp(32px, 7.1vw, 7.1vw);
-    --font-size-large: clamp(22px, 2.74vw, 2.74vw);
+    --spacing-section: 84px;
+    --font-size-huge: clamp(29px, 9.23vw, 29px);
+    --font-size-large: clamp(20px, 2.49vw, 29px);
+    --font-size-title: 29px;
     --font-size-medium: 22px;
   }
 }
@@ -461,9 +561,10 @@ p {
   :root {
     --spacing-app-margin: 16px;
     --spacing-xheight: 88px;
-    --spacing-section: 48px;
-    --font-size-huge: clamp(32px, 9vw, 40px);
-    --font-size-large: clamp(24px, 6vw, 28px);
+    --spacing-section: 64px;
+    --font-size-huge: clamp(29px, 11.7vw, 29px);
+    --font-size-large: clamp(22px, 7.8vw, 26px);
+    --font-size-title: 29px;
   }
 }
 
@@ -479,6 +580,6 @@ h6 {
 @media (max-height: 760px) {
   :root {
     --spacing-xheight: 96px;
-    --spacing-section: 56px;
+    --spacing-section: 72px;
   }
 }
