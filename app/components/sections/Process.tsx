@@ -39,10 +39,6 @@ const PROCESS_STEPS = [
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/* Card                                                                */
-/* ------------------------------------------------------------------ */
-
 function StepCard({
   step,
   canStart,
@@ -84,7 +80,7 @@ function StepCard({
       return;
     }
     return traceVisual(visualRef.current, onDone);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [active]);
 
   return (

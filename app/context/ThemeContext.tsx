@@ -9,38 +9,30 @@ import {
   type ReactNode,
 } from "react";
 
-/* -------------------------------------------------------------------------- */
-/*  Types                                                                      */
-/* -------------------------------------------------------------------------- */
-
 interface ThemeContextValue {
-  /** Current theme index (0 = pure dark, 16 = pure white) */
+
   theme: number;
-  /** Set the theme directly */
+
   setTheme: (t: number) => void;
-  /** Toggle between theme-0 (dark) and theme-16 (white) */
+
   toggleBW: () => void;
-  /** Cycle through all 17 themes (sunlight spectrum shortcut) */
+
   cycleTheme: () => void;
-  /** Whether the grid overlay is visible */
+
   gridVisible: boolean;
-  /** Toggle grid overlay */
+
   toggleGrid: () => void;
-  /** Whether vertical grid lines are visible */
+
   verticalGridVisible: boolean;
-  /** Toggle vertical grid lines */
+
   toggleVerticalGrid: () => void;
-  /** Whether horizontal grid lines are visible */
+
   horizontalGridVisible: boolean;
-  /** Toggle horizontal grid lines */
+
   toggleHorizontalGrid: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
-
-/* -------------------------------------------------------------------------- */
-/*  Provider                                                                   */
-/* -------------------------------------------------------------------------- */
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState(16);
@@ -48,11 +40,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [verticalGridVisible, setVerticalGridVisible] = useState(true);
   const [horizontalGridVisible, setHorizontalGridVisible] = useState(false);
 
-  /* Auto-detect saved theme or dark mode preference on first mount */
   useEffect(() => {
     const saved = localStorage.getItem("portfolio-theme");
     if (saved !== null && !isNaN(Number(saved))) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- keeps SSR theme stable, then applies the saved client preference after mount.
+
       setThemeState(Number(saved));
     } else if (
       window.matchMedia &&
@@ -96,10 +87,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setHorizontalGridVisible((prev) => !prev);
   }, []);
 
-  /* Keyboard shortcuts (g = grid, b/w = toggle b/w, s = cycle spectrum) */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      // Don't trigger shortcuts if user is typing in an input
+
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement
@@ -148,10 +138,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     </ThemeContext.Provider>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*  Hook                                                                       */
-/* -------------------------------------------------------------------------- */
 
 export function useTheme() {
   const ctx = useContext(ThemeContext);

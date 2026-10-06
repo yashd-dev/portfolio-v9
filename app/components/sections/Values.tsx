@@ -1,6 +1,4 @@
-/**
- * Values section four big words + a descriptive paragraph.
- */
+
 export default function Values() {
   return (
     <section
@@ -11,7 +9,7 @@ export default function Values() {
         className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-8">
-          {/* Title values */}
+
           <div className="col-span-full pb-14">
             {["Intentional", "Impactful", "Polished", "Honest"].map((word) => (
               <h1
@@ -23,7 +21,6 @@ export default function Values() {
             ))}
           </div>
 
-          {/* Description */}
           <div className="col-start-2 col-end-[-1] max-md:col-span-full">
             <p className="text-base leading-5">
               I care about websites with a point of view: clear hierarchy,

@@ -17,10 +17,6 @@ interface NavProps {
 
 const sectionIds = NAV_SECTIONS.map((s) => s.id);
 
-/**
- * Top active-section pill (desktop) / fullscreen overlay nav (mobile).
- * Highlights the active section via scroll-spy.
- */
 export default function Nav({
   isMobileNavOpen,
   isMobileNavTransitioning,
@@ -54,7 +50,7 @@ export default function Nav({
 
   const handleClick = (id: string) => {
     onItemClick();
-    // Wait for the mobile overlay to unlock page scroll before navigating.
+
     if (isMobileNavOpen) {
       setTimeout(() => scrollTo(id), 520);
     } else {
@@ -296,7 +292,7 @@ export default function Nav({
               ${activeId === section.id ? "text-fg" : "text-fg-33 hover:text-fg"}
             `}
             style={{
-              // Mobile staggered animation
+
               ...(isMobileNavTransitioning
                 ? {
                     marginLeft: "-0.07em",

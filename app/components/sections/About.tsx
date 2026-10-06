@@ -1,8 +1,5 @@
 "use client";
 
-/**
- * About section biography, accolades, press, and colophon.
- */
 export default function About() {
   return (
     <section
@@ -13,7 +10,7 @@ export default function About() {
         className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-8">
-          {/* Biography */}
+
           <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <p className="text-base leading-5">
               I&apos;m a web designer and developer pursuing Computer
@@ -26,7 +23,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* Education */}
           <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <h2
               className="pt-12 pb-[0.14em]"

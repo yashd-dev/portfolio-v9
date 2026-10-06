@@ -38,9 +38,6 @@ const STACK_ICONS: Record<string, { title: string; path: string }> = {
   "Vercel": siVercel,
 };
 
-/**
- * Full-width rectangular collage window with colour-tint overlays.
- */
 export default function Work() {
   const [processDone, setProcessDone] = useState(false);
 
@@ -62,7 +59,7 @@ export default function Work() {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            {/* Colour-tint overlays (controlled by theme class in globals.css) */}
+
             <div className="image-overlay-01 absolute inset-0" />
             <div className="image-overlay-02 absolute inset-0" />
           </figure>

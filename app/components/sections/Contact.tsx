@@ -30,10 +30,10 @@ export default function Contact() {
         }}
       >
         <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-8">
-          {/* Text side */}
+
           <div className="flex flex-col justify-between">
             <div>
-              {/* Pulse indicator */}
+
               <div className="relative mb-4">
                 <div className="relative flex items-center gap-2">
                   <div className="relative w-6 h-6 flex items-center justify-center">
@@ -49,14 +49,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Status */}
               <div>
                 <h3 className="text-base leading-[1.375] text-fg-50">
                   Open to new opportunities
                 </h3>
               </div>
 
-              {/* Interest */}
               <div>
                 <h2
                   style={{
@@ -69,15 +67,14 @@ export default function Contact() {
                 >
                   Let&apos;s build something great.
                 </h2>
-                
-               
+
               </div>
             </div>
- {/* GitHub Contribution Graph */}
+
                 <div className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
                   <div className="flex-1 w-full overflow-x-clip">
-                    <GitHubCalendar 
-                      username="yashd-dev" 
+                    <GitHubCalendar
+                      username="yashd-dev"
                       colorScheme={theme === 16 ? "light" : "dark"}
                       year={calendarYear === today ? "last" : calendarYear}
                       blockSize={7}
@@ -102,7 +99,7 @@ export default function Contact() {
                     })}
                   </div>
                 </div>
-            {/* Action links */}
+
             <div className="grid grid-cols-2 gap-8 pt-12 max-sm:pt-12 max-sm:pb-7">
               <div>
                 <a
@@ -152,7 +149,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Profile photo */}
           <div>
             <figure className="relative">
               <Image

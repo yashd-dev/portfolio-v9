@@ -2,9 +2,6 @@
 
 import { REFERENCES } from "@/app/data/content";
 
-/**
- * References / Testimonials section with opening quote marks.
- */
 export default function References() {
   return (
     <section

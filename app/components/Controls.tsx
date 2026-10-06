@@ -2,9 +2,6 @@
 
 import { useTheme } from "@/app/context/ThemeContext";
 
-/**
- * Fixed bottom-right controls for toggling vertical/horizontal grids.
- */
 export default function Controls() {
   const {
     gridVisible,
@@ -14,7 +11,6 @@ export default function Controls() {
     toggleHorizontalGrid,
   } = useTheme();
 
-  // If master grid is off, don't show individual controls
   if (!gridVisible) return null;
 
   return (
@@ -26,13 +22,13 @@ export default function Controls() {
       }}
     >
       <div className="flex items-center gap-1">
-        {/* Toggle Vertical Grid */}
+
         <button
           onClick={toggleVerticalGrid}
           className={`
             flex items-center justify-center w-10 h-10 rounded-2xl transition-all duration-300
-            ${verticalGridVisible 
-              ? "bg-fg text-bg" 
+            ${verticalGridVisible
+              ? "bg-fg text-bg"
               : "text-fg-33 hover:text-fg hover:bg-fg-5"}
           `}
           aria-label="Toggle vertical grid"
@@ -41,16 +37,14 @@ export default function Controls() {
           <span className="text-sm font-mono font-bold">V</span>
         </button>
 
-        {/* Separator */}
         <div className="w-px h-4 bg-fg-10 mx-1" />
 
-        {/* Toggle Horizontal Grid */}
         <button
           onClick={toggleHorizontalGrid}
           className={`
             flex items-center justify-center w-10 h-10 rounded-2xl transition-all duration-300
-            ${horizontalGridVisible 
-              ? "bg-fg text-bg" 
+            ${horizontalGridVisible
+              ? "bg-fg text-bg"
               : "text-fg-33 hover:text-fg hover:bg-fg-5"}
           `}
           aria-label="Toggle horizontal grid"

@@ -1,18 +1,11 @@
-/**
- * Centralised content data for the portfolio.
- * Edit this file to change copy without touching component code.
- */
 
-/* -------------------------------------------------------------------------- */
-/*  Intro section                                                              */
-/* -------------------------------------------------------------------------- */
 
 export interface IntroOption {
   id: string;
   label: string;
   content: string;
   ctaLabel: string;
-  /** If true the content contains raw HTML (links etc.) */
+
   isHtml?: boolean;
 }
 
@@ -111,10 +104,6 @@ export const PROJECTS: ProjectItem[] = [
   },
 ];
 
-/* -------------------------------------------------------------------------- */
-/*  References                                                                 */
-/* -------------------------------------------------------------------------- */
-
 export interface ReferenceItem {
   quote: string;
   person: string;
@@ -123,10 +112,6 @@ export interface ReferenceItem {
 }
 
 export const REFERENCES: ReferenceItem[] = [];
-
-/* -------------------------------------------------------------------------- */
-/*  Nav sections (used for scroll-spy + nav list)                              */
-/* -------------------------------------------------------------------------- */
 
 export const NAV_SECTIONS = [
   { id: "intro", label: "Intro" },

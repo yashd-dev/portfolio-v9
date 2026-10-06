@@ -2,10 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/**
- * Custom hook that returns the id of the section currently in view,
- * replicating the original scroll-spy behaviour exactly.
- */
 export function useActiveSection(sectionIds: readonly string[]) {
   const [activeId, setActiveId] = useState<string>(sectionIds[0]);
 
@@ -38,7 +34,7 @@ export function useActiveSection(sectionIds: readonly string[]) {
       setActiveId(active);
     };
 
-    handleScroll(); // Initial
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
     return () => {

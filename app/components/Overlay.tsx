@@ -5,17 +5,12 @@ import { useEffect, useState } from "react";
 
 const COLUMNS = 12;
 
-/**
- * Full-screen fixed grid overlay (toggled via 'g' key or grid button).
- * Each column has two vertical lines that animate in with staggered delays.
- */
 export default function Overlay() {
   const { gridVisible, verticalGridVisible, horizontalGridVisible } = useTheme();
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Wait until the cover section finishes its loading delay (1.75s + buffer)
-    // before allowing the grid lines to animate down.
+
     const t = setTimeout(() => {
       setIsReady(true);
     }, 2250);

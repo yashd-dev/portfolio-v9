@@ -6,9 +6,6 @@ import { useState } from "react";
 const SLIDER_HEIGHT = 368;
 const DOT_COUNT = 17;
 
-/**
- * Top pill controls for theme, shortcuts, and grid overlay.
- */
 export default function Aside() {
   const { theme, setTheme, toggleGrid } = useTheme();
   const [sliderVisible, setSliderVisible] = useState(false);
@@ -19,7 +16,7 @@ export default function Aside() {
   return (
     <>
       <div className="contents max-lg:hidden">
-          {/* Theme slider button */}
+
           <div
             className="relative h-10 w-10 cursor-pointer rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
             style={{
@@ -29,7 +26,7 @@ export default function Aside() {
             onMouseEnter={() => setSliderVisible(true)}
             onMouseLeave={() => setSliderVisible(false)}
           >
-            {/* Sun icon tracks the active theme along the horizontal slider. */}
+
             <div
               className="absolute flex h-10 w-10 items-center justify-center"
               style={{
@@ -48,7 +45,6 @@ export default function Aside() {
               </svg>
             </div>
 
-            {/* Rotated slider track with dots */}
             <div
               className="absolute h-10 w-10 rounded-full"
               style={{
@@ -57,10 +53,10 @@ export default function Aside() {
                 pointerEvents: sliderVisible ? "auto" : "none",
               }}
             >
-              {/* Dots */}
+
               <div className="absolute top-[18px] flex w-full justify-between px-[18px]">
                 {Array.from({ length: DOT_COUNT }).map((_, i) => {
-                  /* Every 4th dot (indices 0,4,8,12,16) is fully opaque */
+
                   const isBright = i % 4 === 0;
                   const delayIn = `${(DOT_COUNT - 1 - i) * 0.02}s`;
                   const delayOut = `${i * 0.02}s`;
@@ -83,7 +79,6 @@ export default function Aside() {
                 })}
               </div>
 
-              {/* Range input */}
               <input
                 type="range"
                 min={0}
@@ -97,7 +92,6 @@ export default function Aside() {
             </div>
           </div>
 
-          {/* Keyboard shortcuts button */}
           <button
             onClick={() => setShortcutsOpen(true)}
             className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
@@ -121,7 +115,6 @@ export default function Aside() {
             </svg>
           </button>
 
-          {/* Grid overlay toggle */}
           <button
             onClick={toggleGrid}
             className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-fg-5 hover:bg-fg-15 active:bg-fg-20"
@@ -139,7 +132,6 @@ export default function Aside() {
           </button>
       </div>
 
-      {/* Keyboard Shortcuts Dialog */}
       {shortcutsOpen && (
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-fg-20 backdrop-blur-sm transition-opacity"

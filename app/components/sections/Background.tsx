@@ -3,10 +3,6 @@
 import Image from "next/image";
 import { PROJECTS } from "@/app/data/content";
 
-/**
- * Background section professional history with the intro paragraph
- * followed by a list of companies with icons.
- */
 export default function Background() {
   return (
     <section
@@ -17,7 +13,7 @@ export default function Background() {
         className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-5">
-          {/* Intro description */}
+
           <div className="col-span-full max-md:col-span-full">
             <p className="text-base leading-5">
               Most of my work starts with the interface: layout, rhythm,
@@ -28,7 +24,6 @@ export default function Background() {
             </p>
           </div>
 
-          {/* Company items */}
           {PROJECTS.map((item, index) => {
             const isRight = index % 2 !== 0;
             return (
@@ -36,7 +31,7 @@ export default function Background() {
                 key={item.name}
                 className={`col-span-full pt-12 flex flex-col items-start text-left group cursor-pointer ${isRight ? "md:items-end md:text-right" : ""}`}
               >
-                {/* Big Image always visible */}
+
                 <div
                   className={`overflow-hidden rounded-2xl bg-fg-5 w-full ${item.featured ? "md:max-w-[70%]" : "md:max-w-[40%]"} mb-5`}
                 >
@@ -56,7 +51,6 @@ export default function Background() {
                   </a>
                 </div>
 
-                {/* Company name (Huge) */}
                 <h1
                   className="transition-colors duration-300 group-hover:text-fg w-fit"
                   style={{
@@ -74,7 +68,6 @@ export default function Background() {
                   </a>
                 </h1>
 
-                {/* Tech Stack (Large) */}
                 <h2
                   className="pt-2 transition-colors duration-300 pointer-events-none"
                   style={{
@@ -88,7 +81,6 @@ export default function Background() {
                   {item.tech}
                 </h2>
 
-                {/* Description (Small) */}
                 <p className="pt-4 text-base leading-snug text-fg-50 pointer-events-none w-full md:w-1/2">
                   {item.description}
                 </p>

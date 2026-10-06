@@ -6,10 +6,6 @@ import { useTheme } from "@/app/context/ThemeContext";
 
 const DISCUSSION_LINK = "https://cal.com/yashd-dev/discussion";
 
-/**
- * Intro section with audience-selector tabs that switch the hero text.
- * Includes left/right gradient masks on the scrollable tab bar.
- */
 export default function Intro() {
   const [activeId, setActiveId] = useState(INTRO_OPTIONS[0].id);
   const activeOption =

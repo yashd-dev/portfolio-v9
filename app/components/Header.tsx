@@ -7,10 +7,6 @@ interface HeaderProps {
   isMobileNavOpen: boolean;
 }
 
-/**
- * Fixed top header with the animated "Yash Deshpande" brand reveal
- * and the hamburger → X mobile nav toggle.
- */
 export default function Header({
   onToggleMobileNav,
   isMobileNavOpen,
@@ -24,7 +20,7 @@ export default function Header({
       style={{ padding: "0 var(--spacing-app-margin)" }}
     >
       <div className="flex items-center justify-between py-5 max-lg:py-2">
-        {/* Brand */}
+
         <div
           className="cursor-default py-3 max-lg:block lg:hidden"
           onMouseEnter={() => setIsHovered(true)}
@@ -60,7 +56,6 @@ export default function Header({
           </h3>
         </div>
 
-        {/* Mobile hamburger/X toggle */}
         <button
           className="hidden max-lg:flex p-3 -mr-3 rounded-3xl cursor-pointer"
           onClick={onToggleMobileNav}

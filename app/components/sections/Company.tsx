@@ -7,7 +7,7 @@ export default function Company({
   iconKey: string;
   pathData: string;
 }) {
-  /* The Cocoon icon is too complex for a single path, so we render it differently */
+
   if (iconKey === "cocoon") {
     return (
       <svg
@@ -17,7 +17,7 @@ export default function Company({
         viewBox="0 0 64 64"
         className="w-8 h-8 fill-fg"
       >
-        {/* Simplified outer ring representation */}
+
         <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" strokeWidth="1.5" />
         <circle cx="32" cy="12" r="3" />
         <circle cx="32" cy="52" r="3" />

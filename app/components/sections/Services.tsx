@@ -62,7 +62,6 @@ export default function Services() {
           {SERVICES.map((service, index) => {
             const isActive = activeService === index;
 
-            // Content leaves instantly, enters right after the label has faded.
             const enter = isActive
               ? "opacity-100 blur-0 translate-y-0 duration-500"
               : "opacity-0 blur-md translate-y-2 duration-150 max-lg:opacity-100 max-lg:blur-0 max-lg:translate-y-0";
@@ -76,12 +75,12 @@ export default function Services() {
                 aria-expanded={isActive}
                 className={`group relative overflow-hidden rounded-2xl bg-black text-left text-white transition-[flex,border-color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-lg:h-auto max-lg:min-h-[220px] ${isActive ? "flex-[3.6] border-fg-25" : "flex-[0.78]"}`}
               >
-                {/* image: full strength, no white wash */}
+
                 <div
                   className={`absolute inset-0 bg-cover bg-center transition-[transform,filter] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? "scale-100 brightness-100 saturate-100" : "scale-110 brightness-75 saturate-75"}`}
                   style={{ backgroundImage: `url("${service.image}")` }}
                 />
-                {/* dark gradient for text contrast */}
+
                 <div
                   className={`absolute inset-0 transition-opacity duration-700 ${isActive ? "opacity-100" : "opacity-70"}`}
                   style={{
@@ -95,7 +94,6 @@ export default function Services() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  {/* vertical label, pinned left, blur-fades out first */}
                   <span
                     aria-hidden="true"
                     className={`absolute left-7 top-1/2 -translate-y-1/2 rotate-180 whitespace-nowrap text-2xl font-semibold leading-none tracking-[-0.035em] transition-[opacity,filter] ease-out [writing-mode:vertical-rl] max-lg:hidden ${isActive ? "opacity-0 blur-md duration-300" : "opacity-100 blur-0 delay-300 duration-500"}`}

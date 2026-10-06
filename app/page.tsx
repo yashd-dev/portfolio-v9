@@ -24,12 +24,11 @@ export default function Home() {
   const [mobileNavTransitioning, setMobileNavTransitioning] = useState(false);
   const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  /* ---- Cover animation state ---- */
   const [coverVisible, setCoverVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Reset scroll on load
+
     if (typeof history !== "undefined" && history.scrollRestoration) {
       history.scrollRestoration = "manual";
     }
@@ -82,18 +81,17 @@ export default function Home() {
     };
   }, [mobileNavTransitioning]);
 
-  /* ---- Mobile nav toggle ---- */
   const toggleMobileNav = useCallback(() => {
     if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
 
     if (mobileNavOpen) {
-      // Close
+
       setMobileNavOpen(false);
       transitionTimerRef.current = setTimeout(() => {
         setMobileNavTransitioning(false);
       }, 500);
     } else {
-      // Open
+
       setMobileNavTransitioning(true);
       requestAnimationFrame(() => {
         setMobileNavOpen(true);
@@ -111,7 +109,6 @@ export default function Home() {
     }, 500);
   }, [mobileNavOpen]);
 
-  // Close mobile nav on resize
   useEffect(() => {
     const handleResize = () => {
       if (mobileNavOpen) closeMobileNav();
@@ -123,7 +120,6 @@ export default function Home() {
     };
   }, [mobileNavOpen, closeMobileNav]);
 
-  /* ---- Keyboard navigation (N = Next Section) ---- */
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -159,10 +155,9 @@ export default function Home() {
         overflow: isLoading ? "hidden" : undefined,
       }}
     >
-      {/* Cover intro animation */}
+
       {isLoading && <Cover />}
 
-      {/* Header, Nav, Aside fade in after cover */}
       <div
         style={{
           opacity: coverVisible ? 0 : 1,
@@ -182,7 +177,6 @@ export default function Home() {
         <Controls />
       </div>
 
-      {/* Main content pushes down during cover, then slides up */}
       <main
         className={isLoading ? "relative" : ""}
         style={{
@@ -201,7 +195,6 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* Grid overlay */}
       <Overlay />
     </div>
   );
