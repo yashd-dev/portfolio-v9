@@ -267,7 +267,7 @@ export default function AppNav({
         <span
           className="block leading-none"
           style={{
-            fontSize: "var(--font-size-medium)",
+            fontSize: "var(--font-size-title)",
             marginLeft: "-0.07em",
           }}
         >
@@ -292,7 +292,7 @@ export default function AppNav({
             onClick={() => handleClick(section.id)}
             className={`
               text-base py-[1px] cursor-pointer transition-colors duration-200
-              max-lg:text-[var(--font-size-medium)] max-lg:leading-6
+              max-lg:text-[var(--font-size-title)] max-lg:leading-[1.05]
               ${activeId === section.id ? "text-fg" : "text-fg-33 hover:text-fg"}
             `}
             style={{

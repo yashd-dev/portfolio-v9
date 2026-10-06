@@ -82,9 +82,16 @@ export default function WorkSection() {
         >
           <div className="col-start-2 col-end-13 max-lg:col-start-1">
             <div className="grid grid-cols-11 gap-8 pb-8 max-lg:grid-cols-1">
-              <div className="col-span-4 max-w-[520px] max-lg:col-span-1">
+              <div className="col-span-5 max-w-none max-lg:col-span-1">
                 <p className="mb-3 text-sm text-fg-50">Selected projects</p>
-                <h2 className="text-[var(--font-size-title)] leading-[1.05] tracking-[-0.035em]">
+                <h2
+                  style={{
+                    fontSize: "var(--font-size-huge)",
+                    lineHeight: 0.975,
+                    letterSpacing: "-0.02em",
+                    marginLeft: "-0.07em",
+                  }}
+                >
                   Built for real launches, not just screenshots.
                 </h2>
               </div>
@@ -124,7 +131,14 @@ export default function WorkSection() {
                   <p className="mb-4 text-sm text-fg-50 tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="text-[var(--font-size-title)] leading-[1.05] tracking-[-0.035em]">
+                  <h2
+                    style={{
+                      fontSize: "var(--font-size-huge)",
+                      lineHeight: 0.975,
+                      letterSpacing: "-0.02em",
+                      marginLeft: "-0.07em",
+                    }}
+                  >
                     {project.name}
                   </h2>
                   <div className="mt-7 flex flex-wrap gap-3">

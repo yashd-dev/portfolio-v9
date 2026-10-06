@@ -33,7 +33,7 @@ export default function AppHeader({
           <h3
             className="leading-none"
             style={{
-              fontSize: "var(--font-size-medium)",
+              fontSize: "var(--font-size-title)",
               marginLeft: "-0.07em",
             }}
           >
