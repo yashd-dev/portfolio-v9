@@ -374,6 +374,15 @@ p {
   }
 }
 
+.cover-intro:hover {
+  --cover-transform-duration: 14s;
+  --cover-opacity-duration: 5s;
+}
+
+.cover-intro:hover h1 {
+  animation-duration: 8s !important;
+}
+
 @keyframes pulse {
   0% {
     background-color: var(--fg-25);
@@ -449,6 +458,35 @@ p {
 
 .process-card {
   animation: process-card-reveal 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes project-blur-fade {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.project-blur-item {
+  animation: project-blur-fade 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.project-reveal-group {
+  animation: project-blur-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-blur-item,
+  .project-reveal-group {
+    animation: none;
+  }
 }
 
 .process-surface {

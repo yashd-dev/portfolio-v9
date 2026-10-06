@@ -1,11 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { INTRO_OPTIONS, NAV_SECTIONS } from "@/app/data/content";
-import { useActiveSection } from "@/app/hooks/useActiveSection";
+import { INTRO_OPTIONS } from "@/app/data/content";
 import { useTheme } from "@/app/context/ThemeContext";
 
-const ALL_SECTION_IDS = NAV_SECTIONS.map((s) => s.id);
 const DISCUSSION_LINK = "https://cal.com/yashd-dev/discussion";
 
 /**
@@ -17,7 +15,6 @@ export default function IntroSection() {
   const activeOption =
     INTRO_OPTIONS.find((option) => option.id === activeId) ?? INTRO_OPTIONS[0];
   const { setTheme } = useTheme();
-  const activeNavSection = useActiveSection(ALL_SECTION_IDS);
   const [showLeftMask, setShowLeftMask] = useState(false);
   const [showRightMask, setShowRightMask] = useState(true);
   const optionsRef = useRef<HTMLDivElement>(null);
@@ -49,21 +46,6 @@ export default function IntroSection() {
         gridTemplateColumns: "repeat(12, 1fr)",
       }}
     >
-      <div
-        className="fixed inset-0 pointer-events-none transition-opacity duration-1000 ease-in-out"
-        style={{
-          zIndex: 0,
-          opacity:
-            activeId === "product-designers" &&
-            (activeNavSection === "intro" || activeNavSection === "work")
-              ? 1
-              : 0,
-          backgroundImage: "url('/images/bg-flower.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
       <div
         className="col-span-full lg:col-start-5 lg:col-end-[-1] xl:col-start-5 relative"
         style={{

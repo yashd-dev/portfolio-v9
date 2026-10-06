@@ -19,7 +19,7 @@ export default function CoverSection() {
 
   return (
     <section
-      className="fixed inset-0 w-full min-h-screen grid pointer-events-none z-50"
+      className="cover-intro fixed inset-0 w-full min-h-screen grid z-50"
       style={{
         padding: `0 var(--spacing-app-margin)`,
         gridTemplateColumns: "repeat(12, 1fr)",
@@ -27,12 +27,12 @@ export default function CoverSection() {
         transform: coverVisible ? "translateY(0)" : "translateY(-100vh)",
         opacity: coverVisible ? 1 : 0,
         transition:
-          "transform 1.5s cubic-bezier(0.33, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1) 0.25s",
+          "transform var(--cover-transform-duration, 2.1s) cubic-bezier(0.33, 0, 0.2, 1), opacity var(--cover-opacity-duration, 0.7s) cubic-bezier(0.33, 0, 0.2, 1) 0.35s",
       }}
     >
       <div className="col-span-full flex items-center">
         <h1
-          className="pb-10 animate-[welcome_1.5s_ease-in-out]"
+          className="pb-10 animate-[welcome_2.1s_ease-in-out]"
           style={{
             fontSize: "var(--font-size-huge)",
             lineHeight: 0.975,

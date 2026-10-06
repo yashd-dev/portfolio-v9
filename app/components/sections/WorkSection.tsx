@@ -2,8 +2,10 @@
 
 import { PROJECTS } from "@/app/data/content";
 import ProcessSection from "@/app/components/sections/ProcessSection";
+import ServicesSection from "@/app/components/sections/ServicesSection";
 import ValuesSection from "@/app/components/sections/ValuesSection";
 import Image from "next/image";
+import { useState } from "react";
 import {
   siFirebase,
   siFlutter,
@@ -40,6 +42,8 @@ const STACK_ICONS: Record<string, { title: string; path: string }> = {
  * Full-width rectangular collage window with colour-tint overlays.
  */
 export default function WorkSection() {
+  const [processDone, setProcessDone] = useState(false);
+
   return (
     <section id="section-work" className="flex w-full" style={{ padding: 0 }}>
       <div
@@ -70,10 +74,11 @@ export default function WorkSection() {
         </div>
 
         <ValuesSection />
-        <ProcessSection />
+        <ServicesSection />
+        <ProcessSection onComplete={() => setProcessDone(true)} />
 
         <div
-          className="grid gap-8 pt-[var(--spacing-section)]"
+          className={`grid gap-8 pt-[var(--spacing-section)] transition-[opacity,filter,transform] duration-700 ${processDone ? "opacity-100 blur-0 translate-y-0" : "pointer-events-none opacity-0 blur-md translate-y-6"}`}
           style={{
             paddingLeft: `var(--spacing-app-margin)`,
             paddingRight: `var(--spacing-app-margin)`,
@@ -106,7 +111,8 @@ export default function WorkSection() {
             {PROJECTS.map((project, index) => (
               <article
                 key={project.name}
-                className="grid grid-cols-11 gap-8 py-16 max-lg:grid-cols-1 max-lg:gap-8"
+                className="project-reveal-group grid grid-cols-11 gap-8 py-16 max-lg:grid-cols-1 max-lg:gap-8"
+                style={{ animationDelay: `${index * 180}ms` }}
               >
                 <a
                   href={project.link || undefined}
@@ -128,10 +134,11 @@ export default function WorkSection() {
                 </a>
 
                 <div className="col-start-7 col-end-10 flex flex-col justify-center max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
-                  <p className="mb-4 text-sm text-fg-50 tabular-nums">
+                  <p className="project-blur-item mb-4 text-sm text-fg-50 tabular-nums [--reveal-delay:260ms]">
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <h2
+                    className="project-blur-item [--reveal-delay:360ms]"
                     style={{
                       fontSize: "var(--font-size-huge)",
                       lineHeight: 0.975,
@@ -141,7 +148,7 @@ export default function WorkSection() {
                   >
                     {project.name}
                   </h2>
-                  <div className="mt-7 flex flex-wrap gap-3">
+                  <div className="project-blur-item mt-7 flex flex-wrap gap-3 [--reveal-delay:480ms]">
                     {project.tech.split(", ").map((tech) => {
                       const icon = STACK_ICONS[tech];
 
@@ -167,7 +174,7 @@ export default function WorkSection() {
                       );
                     })}
                   </div>
-                  <p className="mt-8 max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
+                  <p className="project-blur-item mt-8 max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50 [--reveal-delay:620ms]">
                     {project.description}
                   </p>
                 </div>
@@ -178,7 +185,7 @@ export default function WorkSection() {
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex h-12 w-full items-center justify-center rounded-full bg-fg-5 text-xl transition-colors hover:bg-fg hover:text-bg max-lg:w-24"
+                      className="project-blur-item flex h-12 w-full items-center justify-center rounded-full bg-fg-5 text-xl transition-colors hover:bg-fg hover:text-bg max-lg:w-24 [--reveal-delay:760ms]"
                       aria-label={`Open ${project.name}`}
                     >
                       ↗

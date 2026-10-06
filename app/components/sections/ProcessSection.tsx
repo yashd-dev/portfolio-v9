@@ -377,8 +377,12 @@ function StepCard({
   );
 }
 
-export default function ProcessSection() {
+export default function ProcessSection({ onComplete }: { onComplete?: () => void }) {
   const [done, setDone] = useState(0);
+
+  useEffect(() => {
+    if (done >= PROCESS_STEPS.length) onComplete?.();
+  }, [done, onComplete]);
 
   return (
     <section
