@@ -9,7 +9,7 @@ const DOT_COUNT = 17;
 /**
  * Top pill controls for theme, shortcuts, and grid overlay.
  */
-export default function AppAside() {
+export default function Aside() {
   const { theme, setTheme, toggleGrid } = useTheme();
   const [sliderVisible, setSliderVisible] = useState(false);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);

@@ -1,19 +1,14 @@
 /**
  * Values section four big words + a descriptive paragraph.
  */
-export default function ValuesSection() {
+export default function Values() {
   return (
     <section
       id="section-values"
-      className="grid gap-8"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-8"
     >
       <div
-        className="col-span-full lg:col-start-5 lg:col-end-[-1]"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-8">
           {/* Title values */}
@@ -21,12 +16,7 @@ export default function ValuesSection() {
             {["Intentional", "Impactful", "Polished", "Honest"].map((word) => (
               <h1
                 key={word}
-                style={{
-                  fontSize: "var(--font-size-huge)",
-                  lineHeight: 0.975,
-                  letterSpacing: "-0.02em",
-                  marginLeft: "-0.07em",
-                }}
+                className="section-heading"
               >
                 {word}
               </h1>

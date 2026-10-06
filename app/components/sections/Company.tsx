@@ -1,6 +1,6 @@
 "use client";
 
-export default function CompanyIcon({
+export default function Company({
   iconKey,
   pathData,
 }: {

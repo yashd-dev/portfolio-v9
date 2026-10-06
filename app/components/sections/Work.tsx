@@ -1,9 +1,9 @@
 "use client";
 
 import { PROJECTS } from "@/app/data/content";
-import ProcessSection from "@/app/components/sections/ProcessSection";
-import ServicesSection from "@/app/components/sections/ServicesSection";
-import ValuesSection from "@/app/components/sections/ValuesSection";
+import Process from "@/app/components/sections/Process";
+import Services from "@/app/components/sections/Services";
+import Values from "@/app/components/sections/Values";
 import Image from "next/image";
 import { useState } from "react";
 import {
@@ -41,21 +41,16 @@ const STACK_ICONS: Record<string, { title: string; path: string }> = {
 /**
  * Full-width rectangular collage window with colour-tint overlays.
  */
-export default function WorkSection() {
+export default function Work() {
   const [processDone, setProcessDone] = useState(false);
 
   return (
     <section id="section-work" className="flex w-full" style={{ padding: 0 }}>
       <div
-        className="w-full"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        className="w-full section-pad"
       >
         <div
-          className="grid gap-8"
-          style={{
-            padding: `0 var(--spacing-app-margin)`,
-            gridTemplateColumns: "repeat(12, 1fr)",
-          }}
+          className="app-grid gap-8"
         >
           <figure className="relative col-start-2 col-end-13 h-[62vh] w-full overflow-hidden rounded-xl bg-fg-5 p-3">
             <div
@@ -73,9 +68,9 @@ export default function WorkSection() {
           </figure>
         </div>
 
-        <ValuesSection />
-        <ServicesSection />
-        <ProcessSection onComplete={() => setProcessDone(true)} />
+        <Values />
+        <Services />
+        <Process onComplete={() => setProcessDone(true)} />
 
         <div
           className={`grid gap-8 pt-[var(--spacing-section)] transition-[opacity,filter,transform] duration-700 ${processDone ? "opacity-100 blur-0 translate-y-0" : "pointer-events-none opacity-0 blur-md translate-y-6"}`}
@@ -90,12 +85,7 @@ export default function WorkSection() {
               <div className="col-span-5 max-w-none max-lg:col-span-1">
                 <p className="mb-3 text-sm text-fg-50">Selected projects</p>
                 <h2
-                  style={{
-                    fontSize: "var(--font-size-huge)",
-                    lineHeight: 0.975,
-                    letterSpacing: "-0.02em",
-                    marginLeft: "-0.07em",
-                  }}
+                  className="section-heading"
                 >
                   Built for real launches, not just screenshots.
                 </h2>
@@ -138,13 +128,7 @@ export default function WorkSection() {
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <h2
-                    className="project-blur-item [--reveal-delay:360ms]"
-                    style={{
-                      fontSize: "var(--font-size-huge)",
-                      lineHeight: 0.975,
-                      letterSpacing: "-0.02em",
-                      marginLeft: "-0.07em",
-                    }}
+                    className="project-blur-item section-heading [--reveal-delay:360ms]"
                   >
                     {project.name}
                   </h2>

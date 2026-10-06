@@ -5,15 +5,11 @@ import { REFERENCES } from "@/app/data/content";
 /**
  * References / Testimonials section with opening quote marks.
  */
-export default function ReferencesSection() {
+export default function References() {
   return (
     <section
       id="section-references"
-      className="grid gap-5"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-5"
     >
       <div
         className="col-span-full lg:col-start-5 lg:col-end-[-1]"

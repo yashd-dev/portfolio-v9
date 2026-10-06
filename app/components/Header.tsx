@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-interface AppHeaderProps {
+interface HeaderProps {
   onToggleMobileNav: () => void;
   isMobileNavOpen: boolean;
 }
@@ -11,10 +11,10 @@ interface AppHeaderProps {
  * Fixed top header with the animated "Yash Deshpande" brand reveal
  * and the hamburger → X mobile nav toggle.
  */
-export default function AppHeader({
+export default function Header({
   onToggleMobileNav,
   isMobileNavOpen,
-}: AppHeaderProps) {
+}: HeaderProps) {
   const [isHovered, setIsHovered] = useState(false);
   const nameChars = "Yash Deshpande".split("");
 

@@ -8,7 +8,7 @@ import { useState } from "react";
 const SLIDER_WIDTH = 260;
 const DOT_COUNT = 17;
 
-interface AppNavProps {
+interface NavProps {
   isMobileNavOpen: boolean;
   isMobileNavTransitioning: boolean;
   onItemClick: () => void;
@@ -21,12 +21,12 @@ const sectionIds = NAV_SECTIONS.map((s) => s.id);
  * Top active-section pill (desktop) / fullscreen overlay nav (mobile).
  * Highlights the active section via scroll-spy.
  */
-export default function AppNav({
+export default function Nav({
   isMobileNavOpen,
   isMobileNavTransitioning,
   onItemClick,
   onClose,
-}: AppNavProps) {
+}: NavProps) {
   const { theme, setTheme, toggleGrid } = useTheme();
   const activeId = useActiveSection(sectionIds);
   const [sliderVisible, setSliderVisible] = useState(false);

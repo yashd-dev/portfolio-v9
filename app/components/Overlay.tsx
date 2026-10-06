@@ -9,7 +9,7 @@ const COLUMNS = 12;
  * Full-screen fixed grid overlay (toggled via 'g' key or grid button).
  * Each column has two vertical lines that animate in with staggered delays.
  */
-export default function GridOverlay() {
+export default function Overlay() {
   const { gridVisible, verticalGridVisible, horizontalGridVisible } = useTheme();
   const [isReady, setIsReady] = useState(false);
 

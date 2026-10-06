@@ -37,33 +37,23 @@ const SERVICES = [
   },
 ];
 
-export default function ServicesSection() {
+export default function Services() {
   const [activeService, setActiveService] = useState(0);
 
   return (
     <section
       id="section-services"
-      className="grid gap-8"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-8"
     >
       <div
-        className="col-start-3 col-end-13 grid grid-cols-11 gap-8 max-lg:col-start-1 max-lg:grid-cols-1"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        className="col-start-3 col-end-13 grid grid-cols-11 gap-8 section-pad max-lg:col-start-1 max-lg:grid-cols-1"
       >
         <div className="col-span-5 mb-10 max-w-[760px] max-lg:col-span-1">
           <p className="mb-3 text-sm text-fg-50">What I offer</p>
           <h2
-            style={{
-              fontSize: "var(--font-size-huge)",
-              lineHeight: 0.975,
-              letterSpacing: "-0.02em",
-              marginLeft: "-0.07em",
-            }}
+            className="section-heading"
           >
-            <span style={{ color: "var(--accent)" }}>Everything</span> your
+            <span className="text-accent">Everything</span> your
             business needs online. From one person.
           </h2>
         </div>

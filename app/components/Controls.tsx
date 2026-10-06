@@ -5,7 +5,7 @@ import { useTheme } from "@/app/context/ThemeContext";
 /**
  * Fixed bottom-right controls for toggling vertical/horizontal grids.
  */
-export default function GridControls() {
+export default function Controls() {
   const {
     gridVisible,
     verticalGridVisible,

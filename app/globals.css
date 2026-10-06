@@ -544,6 +544,41 @@ p {
   color: var(--fg-50);
 }
 
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 0 var(--spacing-app-margin);
+}
+
+.section-pad {
+  padding-top: var(--spacing-section);
+  padding-bottom: 12px;
+}
+
+.section-heading {
+  font-size: var(--font-size-huge);
+  line-height: 0.975;
+  letter-spacing: -0.02em;
+  margin-left: -0.07em;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.process-trace-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.process-trace-stroke {
+  stroke-dasharray: 1;
+}
+
 .collage-window-image {
   animation: collage-pan 48s linear infinite;
 }

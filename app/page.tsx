@@ -3,15 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTheme } from "@/app/context/ThemeContext";
 
-import AppHeader from "@/app/components/AppHeader";
-import AppNav from "@/app/components/AppNav";
-import GridControls from "@/app/components/GridControls";
-import GridOverlay from "@/app/components/GridOverlay";
-import CoverSection from "@/app/components/sections/CoverSection";
-import IntroSection from "@/app/components/sections/IntroSection";
-import WorkSection from "@/app/components/sections/WorkSection";
-import AboutSection from "@/app/components/sections/AboutSection";
-import ContactSection from "@/app/components/sections/ContactSection";
+import Header from "@/app/components/Header";
+import Nav from "@/app/components/Nav";
+import Controls from "@/app/components/Controls";
+import Overlay from "@/app/components/Overlay";
+import Cover from "@/app/components/sections/Cover";
+import Intro from "@/app/components/sections/Intro";
+import Work from "@/app/components/sections/Work";
+import About from "@/app/components/sections/About";
+import Contact from "@/app/components/sections/Contact";
 import { NAV_SECTIONS } from "@/app/data/content";
 import { useActiveSection } from "@/app/hooks/useActiveSection";
 
@@ -160,7 +160,7 @@ export default function Home() {
       }}
     >
       {/* Cover intro animation */}
-      {isLoading && <CoverSection />}
+      {isLoading && <Cover />}
 
       {/* Header, Nav, Aside fade in after cover */}
       <div
@@ -169,17 +169,17 @@ export default function Home() {
           transition: "opacity 1s cubic-bezier(0.33, 0, 0.2, 1) 0.75s",
         }}
       >
-        <AppHeader
+        <Header
           onToggleMobileNav={toggleMobileNav}
           isMobileNavOpen={mobileNavOpen}
         />
-        <AppNav
+        <Nav
           isMobileNavOpen={mobileNavOpen}
           isMobileNavTransitioning={mobileNavTransitioning}
           onItemClick={closeMobileNav}
           onClose={closeMobileNav}
         />
-        <GridControls />
+        <Controls />
       </div>
 
       {/* Main content pushes down during cover, then slides up */}
@@ -195,14 +195,14 @@ export default function Home() {
           pointerEvents: isLoading ? "none" : undefined,
         }}
       >
-        <IntroSection />
-        <WorkSection />
-        <AboutSection />
-        <ContactSection />
+        <Intro />
+        <Work />
+        <About />
+        <Contact />
       </main>
 
       {/* Grid overlay */}
-      <GridOverlay />
+      <Overlay />
     </div>
   );
 }

@@ -10,7 +10,7 @@ const DISCUSSION_LINK = "https://cal.com/yashd-dev/discussion";
  * Intro section with audience-selector tabs that switch the hero text.
  * Includes left/right gradient masks on the scrollable tab bar.
  */
-export default function IntroSection() {
+export default function Intro() {
   const [activeId, setActiveId] = useState(INTRO_OPTIONS[0].id);
   const activeOption =
     INTRO_OPTIONS.find((option) => option.id === activeId) ?? INTRO_OPTIONS[0];
@@ -40,11 +40,7 @@ export default function IntroSection() {
   return (
     <section
       id="section-intro"
-      className="grid gap-8"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-8"
     >
       <div
         className="col-span-full lg:col-start-5 lg:col-end-[-1] xl:col-start-5 relative"

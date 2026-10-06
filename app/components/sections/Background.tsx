@@ -7,19 +7,14 @@ import { PROJECTS } from "@/app/data/content";
  * Background section professional history with the intro paragraph
  * followed by a list of companies with icons.
  */
-export default function BackgroundSection() {
+export default function Background() {
   return (
     <section
       id="section-background"
-      className="grid gap-5"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-5"
     >
       <div
-        className="col-span-full lg:col-start-5 lg:col-end-[-1]"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-5">
           {/* Intro description */}

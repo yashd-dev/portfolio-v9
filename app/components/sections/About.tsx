@@ -3,19 +3,14 @@
 /**
  * About section biography, accolades, press, and colophon.
  */
-export default function AboutSection() {
+export default function About() {
   return (
     <section
       id="section-about"
-      className="grid gap-8"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-8"
     >
       <div
-        className="col-span-full lg:col-start-5 lg:col-end-[-1]"
-        style={{ paddingTop: "var(--spacing-section)", paddingBottom: "12px" }}
+        className="col-span-full section-pad lg:col-start-5 lg:col-end-[-1]"
       >
         <div className="grid grid-cols-2 gap-8">
           {/* Biography */}

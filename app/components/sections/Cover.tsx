@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function CoverSection() {
+export default function Cover() {
   const [coverVisible, setCoverVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,13 +32,7 @@ export default function CoverSection() {
     >
       <div className="col-span-full flex items-center">
         <h1
-          className="pb-10 animate-[welcome_2.1s_ease-in-out]"
-          style={{
-            fontSize: "var(--font-size-huge)",
-            lineHeight: 0.975,
-            letterSpacing: "-0.02em",
-            marginLeft: "-0.07em",
-          }}
+          className="section-heading pb-10 animate-[welcome_2.1s_ease-in-out]"
         >
           Yash Deshpande
           <br />

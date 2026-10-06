@@ -12,7 +12,7 @@ const GitHubCalendar = dynamic(
   { ssr: false },
 );
 
-export default function ContactSection() {
+export default function Contact() {
   const { theme } = useTheme();
   const [calendarYear, setCalendarYear] = useState<number | undefined>(undefined);
   const today = new Date().getFullYear();
@@ -20,11 +20,7 @@ export default function ContactSection() {
   return (
     <section
       id="section-contact"
-      className="grid gap-8"
-      style={{
-        padding: `0 var(--spacing-app-margin)`,
-        gridTemplateColumns: "repeat(12, 1fr)",
-      }}
+      className="app-grid gap-8"
     >
       <div
         className="col-span-full lg:col-start-3 lg:col-end-[-1]"
