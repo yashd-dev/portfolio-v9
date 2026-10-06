@@ -35,23 +35,21 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState(16);
-  const [gridVisible, setGridVisible] = useState(false);
-  const [verticalGridVisible, setVerticalGridVisible] = useState(true);
-  const [horizontalGridVisible, setHorizontalGridVisible] = useState(false);
-
-  useEffect(() => {
+  const [theme, setThemeState] = useState(() => {
+    if (typeof window === "undefined") return 16;
     const saved = localStorage.getItem("portfolio-theme");
-    if (saved !== null && !isNaN(Number(saved))) {
-
-      setThemeState(Number(saved));
-    } else if (
+    if (saved !== null && !isNaN(Number(saved))) return Number(saved);
+    if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-      setThemeState(0);
+      return 0;
     }
-  }, []);
+    return 16;
+  });
+  const [gridVisible, setGridVisible] = useState(false);
+  const [verticalGridVisible, setVerticalGridVisible] = useState(true);
+  const [horizontalGridVisible, setHorizontalGridVisible] = useState(false);
 
   const setTheme = useCallback((t: number) => {
     const newTheme = Math.max(0, Math.min(16, t));

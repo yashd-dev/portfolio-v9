@@ -51,7 +51,7 @@ function StepCard({
   const wrapRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
-  const [active, setActive] = useState(false);
+  const active = inView && canStart;
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -69,10 +69,6 @@ function StepCard({
     return () => io.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (inView && canStart) setActive(true);
-  }, [inView, canStart]);
-
   useLayoutEffect(() => {
     if (!active || !visualRef.current) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -81,7 +77,7 @@ function StepCard({
     }
     return traceVisual(visualRef.current, onDone);
 
-  }, [active]);
+  }, [active, onDone]);
 
   return (
     <div
@@ -166,4 +162,3 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
     </section>
   );
 }
-
