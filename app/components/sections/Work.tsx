@@ -4,7 +4,7 @@ import { PROJECTS } from "@/app/data/content";
 import Process from "@/app/components/sections/Process";
 import Services from "@/app/components/sections/Services";
 import Values from "@/app/components/sections/Values";
-import Image from "next/image";
+import { Safari } from "@/app/components/Safari";
 import { useState } from "react";
 import {
   siFirebase,
@@ -111,12 +111,10 @@ export default function Work() {
                   <span className="absolute left-4 top-4 z-[1] rounded-full bg-bg/85 px-3 py-1 text-xs tabular-nums text-fg-50 backdrop-blur">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <Image
-                    src={`/website/${project.image}`}
-                    alt={`${project.name} website screenshot`}
-                    width={900}
-                    height={506}
-                    className="aspect-video h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  <Safari
+                    siteSrc={project.link}
+                    imageSrc={`/website/${project.image}`}
+                    url={project.link ?? project.name}
                   />
                 </a>
 

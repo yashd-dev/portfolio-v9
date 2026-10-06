@@ -3,7 +3,7 @@
 import { NAV_SECTIONS } from "@/app/data/content";
 import { useTheme } from "@/app/context/ThemeContext";
 import { useActiveSection } from "@/app/hooks/useActiveSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SLIDER_WIDTH = 260;
 const DOT_COUNT = 17;
@@ -27,6 +27,23 @@ export default function Nav({
   const activeId = useActiveSection(sectionIds);
   const [sliderVisible, setSliderVisible] = useState(false);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(maxScroll > 0 ? window.scrollY / maxScroll : 0);
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(`section-${id}`);
@@ -59,12 +76,8 @@ export default function Nav({
   };
 
   const activeSection = NAV_SECTIONS.find((section) => section.id === activeId);
-  const activeIndex = Math.max(
-    0,
-    NAV_SECTIONS.findIndex((section) => section.id === activeId),
-  );
   const circumference = 2 * Math.PI * 8;
-  const progress = ((activeIndex + 1) / NAV_SECTIONS.length) * circumference;
+  const progress = scrollProgress * circumference;
   const iconOffset = sliderVisible ? (theme / 16) * (SLIDER_WIDTH - 40) : 0;
 
   return (
@@ -188,7 +201,7 @@ export default function Nav({
             cx="10"
             cy="10"
             r="8"
-            className="stroke-fg transition-[stroke-dasharray] duration-700 ease-out"
+            className="stroke-fg"
             strokeWidth="2"
             fill="none"
             strokeLinecap="round"

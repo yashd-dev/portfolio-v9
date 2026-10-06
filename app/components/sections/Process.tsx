@@ -41,17 +41,19 @@ const PROCESS_STEPS = [
 
 function StepCard({
   step,
-  canStart,
+  status,
   onDone,
 }: {
   step: (typeof PROCESS_STEPS)[number];
-  canStart: boolean;
+  status: "pending" | "active" | "done";
   onDone: () => void;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
+  const tracedRef = useRef(false);
   const [inView, setInView] = useState(false);
-  const active = inView && canStart;
+  const active = inView && status === "active";
+  const visible = status !== "pending";
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -70,7 +72,8 @@ function StepCard({
   }, []);
 
   useLayoutEffect(() => {
-    if (!active || !visualRef.current) return;
+    if (!active || tracedRef.current || !visualRef.current) return;
+    tracedRef.current = true;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       onDone();
       return;
@@ -84,27 +87,27 @@ function StepCard({
       ref={wrapRef}
       className="h-full"
       style={{
-        opacity: active ? 1 : 0,
-        transform: active ? "none" : "translateY(16px)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(16px)",
         transition: "opacity 500ms ease, transform 500ms ease",
       }}
     >
       <article className="process-card h-full overflow-hidden rounded-2xl process-border-soft bg-bg text-fg">
         <div
           ref={visualRef}
-          className="h-[300px] process-panel p-3 max-sm:h-[240px]"
+          className="h-[300px] process-panel p-3 max-sm:h-auto max-sm:min-h-[210px] max-sm:p-2"
         >
           {step.visual}
         </div>
-        <div className="border-t process-border-soft bg-bg p-7">
-          <div className="mb-5 flex items-center justify-between gap-4 text-xs text-fg-50">
+        <div className="border-t process-border-soft bg-bg p-7 max-sm:p-5">
+          <div className="mb-5 flex items-center justify-between gap-4 text-xs text-fg-50 max-sm:mb-4">
             <span className="tabular-nums">{step.number}</span>
             <span>{step.eyebrow}</span>
           </div>
-          <h3 className="text-[var(--font-size-title)] leading-none tracking-[-0.035em]">
+          <h3 className="text-[var(--font-size-title)] leading-none tracking-[-0.035em] max-sm:text-[clamp(32px,11vw,40px)]">
             {step.title}
           </h3>
-          <p className="mt-5 max-w-[620px] text-sm leading-5 text-fg-50">
+          <p className="mt-5 max-w-[620px] text-sm leading-5 text-fg-50 max-sm:mt-4 max-sm:text-[13px] max-sm:leading-[1.45]">
             {step.description}
           </p>
         </div>
@@ -114,11 +117,11 @@ function StepCard({
 }
 
 export default function Process({ onComplete }: { onComplete?: () => void }) {
-  const [done, setDone] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    if (done >= PROCESS_STEPS.length) onComplete?.();
-  }, [done, onComplete]);
+    if (activeStep >= PROCESS_STEPS.length) onComplete?.();
+  }, [activeStep, onComplete]);
 
   return (
     <section
@@ -147,13 +150,19 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
             </p>
           </div>
 
-          <div className="col-span-full grid grid-cols-2 gap-8 pt-12 max-md:grid-cols-1">
+          <div className="col-span-full grid grid-cols-2 gap-8 pt-12 max-md:grid-cols-1 max-sm:gap-5 max-sm:pt-8">
             {PROCESS_STEPS.map((step, index) => (
               <StepCard
                 key={step.title}
                 step={step}
-                canStart={done >= index}
-                onDone={() => setDone((d) => Math.max(d, index + 1))}
+                status={
+                  index < activeStep
+                    ? "done"
+                    : index === activeStep
+                      ? "active"
+                      : "pending"
+                }
+                onDone={() => setActiveStep((step) => Math.max(step, index + 1))}
               />
             ))}
           </div>
