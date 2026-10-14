@@ -42,53 +42,53 @@ const PROCESS_STEPS = [
 function StepCard({
   step,
   status,
+  started,
   onDone,
 }: {
   step: (typeof PROCESS_STEPS)[number];
   status: "pending" | "active" | "done";
+  started: boolean;
   onDone: () => void;
 }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
-  const tracedRef = useRef(false);
-  const [inView, setInView] = useState(false);
-  const active = inView && status === "active";
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+
+  const active = started && status === "active";
   const visible = status !== "pending";
 
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setInView(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
+  // Depends ONLY on `active`, so re-renders never cancel a running trace.
   useLayoutEffect(() => {
-    if (!active || tracedRef.current || !visualRef.current) return;
-    tracedRef.current = true;
+    const el = visualRef.current;
+    if (!active || !el) return;
+
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      onDoneRef.current();
+    };
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      onDone();
+      finish();
       return;
     }
+
+    let cancel: unknown;
     try {
-      return traceVisual(visualRef.current, onDone);
+      cancel = traceVisual(el, finish);
     } catch {
-      onDone();
+      finish();
     }
 
-  }, [active, onDone]);
+    return () => {
+      // Only cancel a trace that is still in progress (unmount / strict-mode remount).
+      if (!finished && typeof cancel === "function") cancel();
+    };
+  }, [active]);
 
   return (
     <div
-      ref={wrapRef}
       className="h-full"
       style={{
         opacity: visible ? 1 : 0,
@@ -122,27 +122,44 @@ function StepCard({
 
 export default function Process({ onComplete }: { onComplete?: () => void }) {
   const [activeStep, setActiveStep] = useState(0);
+  const [started, setStarted] = useState(false);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
+
+  // Start once the heading enters view, OR has already been scrolled past
+  // (fast scroll). After this, the sequence runs to completion on its own.
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting || e.boundingClientRect.top < 0) {
+          setStarted(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (activeStep >= PROCESS_STEPS.length) onComplete?.();
-  }, [activeStep, onComplete]);
+    if (activeStep >= PROCESS_STEPS.length) onCompleteRef.current?.();
+  }, [activeStep]);
 
   return (
-    <section
-      id="section-process"
-      className="app-grid gap-8"
-    >
-      <div
-        className="col-start-3 col-end-13 section-pad max-lg:col-start-1"
-      >
+    <section id="section-process" className="app-grid gap-8">
+      <div className="col-start-3 col-end-13 section-pad max-lg:col-start-1">
         <div className="grid grid-cols-11 gap-8 max-lg:grid-cols-1">
-          <div className="col-span-5 max-w-none max-lg:col-span-1">
+          <div
+            ref={headingRef}
+            className="col-span-5 max-w-none max-lg:col-span-1"
+          >
             <p className="mb-3 text-sm text-fg-50">How I work</p>
-            <h2
-              className="section-heading"
-            >
-              <span className="text-accent">Clear</span> steps, no
-              vague middle.
+            <h2 className="section-heading">
+              <span className="text-accent">Clear</span> steps, no vague middle.
             </h2>
           </div>
 
@@ -159,6 +176,7 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
               <StepCard
                 key={step.title}
                 step={step}
+                started={started}
                 status={
                   index < activeStep
                     ? "done"
@@ -166,7 +184,9 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
                       ? "active"
                       : "pending"
                 }
-                onDone={() => setActiveStep((step) => Math.max(step, index + 1))}
+                onDone={() =>
+                  setActiveStep((current) => Math.max(current, index + 1))
+                }
               />
             ))}
           </div>
