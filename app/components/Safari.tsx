@@ -78,7 +78,7 @@ export function Safari({
       {hasSite && (
         <div
           ref={screenRef}
-          className="absolute z-0 overflow-hidden bg-white"
+          className={`absolute z-0 overflow-hidden bg-white ${imageSrc ? "hidden lg:block" : ""}`}
           style={{
             left: `${LEFT_PCT}%`,
             top: `${TOP_PCT}%`,
@@ -127,9 +127,9 @@ export function Safari({
         </div>
       )}
 
-      {!hasSite && !hasVideo && imageSrc && (
+      {!hasVideo && imageSrc && (
         <div
-          className="pointer-events-none absolute z-0 overflow-hidden"
+          className={`pointer-events-none absolute z-0 overflow-hidden ${hasSite ? "lg:hidden" : ""}`}
           style={{
             left: `${LEFT_PCT}%`,
             top: `${TOP_PCT}%`,

@@ -58,69 +58,66 @@ export function CallVisual() {
 
 export function FigmaVisual() {
   return (
-    <div className="relative h-full min-h-[210px] overflow-hidden rounded-xl process-border-soft process-panel p-4 max-sm:min-h-[190px] max-sm:p-2">
-      <div className="absolute left-6 right-6 top-1/3 h-px process-accent-line" />
-      <div className="absolute left-6 right-6 top-2/3 h-px process-accent-line" />
-      <div className="absolute bottom-6 top-6 left-[24%] w-px process-accent-line" />
-      <div className="absolute bottom-6 top-6 left-[76%] w-px process-accent-line" />
-
-      <div className="relative grid h-full grid-cols-[72px_1fr_72px] gap-3 max-sm:grid-cols-[44px_1fr_44px] max-sm:gap-2">
-        <div className="flex flex-col justify-between rounded-md process-panel p-4 border process-border-strong max-sm:p-2">
-          <div className="space-y-3">
-            <span className="block h-px w-10 process-line-strong" />
-            {Array.from({ length: 5 }).map((_, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <span
-                  className={`size-2 ${index === 1 ? "rounded-full process-accent" : "rounded-sm border process-border-strong"}`}
-                />
-                <span className="h-px w-7 process-line-mid max-sm:w-4" />
-              </div>
-            ))}
+    <div className="relative h-full min-h-[210px] overflow-hidden rounded-xl process-panel p-4 max-sm:min-h-[190px] max-sm:p-2">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-md border process-border-strong process-panel">
+        <div className="flex h-9 shrink-0 items-center justify-between border-b process-border-strong px-3 max-sm:h-7 max-sm:px-2">
+          <div className="flex items-center gap-1.5">
+            <span className="size-3 rounded-sm process-accent max-sm:size-2.5" />
+            <span className="h-px w-12 process-line-strong max-sm:w-7" />
           </div>
-          <div className="grid grid-cols-2 gap-1.5 max-sm:gap-1">
-            <span className="aspect-square rounded-full process-accent" />
-            <span className="aspect-square rounded-full border process-border-strong" />
-            <span className="aspect-square rounded-sm border process-border-strong" />
-            <span className="aspect-square rounded-sm process-accent-soft border process-border-strong" />
+          <div className="flex items-center gap-2">
+            <span className="size-2 rounded-full border process-border-strong" />
+            <span className="h-4 w-12 rounded-full process-accent max-sm:h-3 max-sm:w-8" />
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center">
-          <div className="absolute left-0 right-0 top-6 h-px process-accent-line" />
-          <div className="absolute bottom-6 left-1/2 top-0 w-px process-accent-line" />
-          <div className="relative h-[86%] w-[78%] process-panel p-5 border process-border-strong max-sm:w-[88%] max-sm:p-3">
-            <div className="mb-5 flex items-center justify-between max-sm:mb-3">
-              <span className="h-px w-12 process-line-strong" />
-              <span className="h-4 w-14 rounded-full process-accent max-sm:w-8" />
-            </div>
-            <div className="grid grid-cols-2 gap-4 max-sm:gap-2">
-              <div className="aspect-[4/3] rounded-md process-fill-soft border process-border-soft" />
-              <div className="space-y-2 pt-2">
-                <span className="block h-px w-full process-line-strong" />
-                <span className="block h-px w-5/6 process-line-mid" />
-                <span className="block h-px w-2/3 process-line-soft" />
-              </div>
+        <div className="grid min-h-0 flex-1 grid-cols-[64px_1fr_74px] max-sm:grid-cols-1">
+          <div className="border-r process-border-strong p-2.5 max-sm:hidden">
+            <span className="mb-3 block h-px w-8 process-line-strong max-sm:mb-2 max-sm:w-5" />
+            <div className="space-y-2.5 max-sm:space-y-2">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <div key={index} className="flex items-center gap-1.5">
+                  <span className={`size-2 shrink-0 ${index === 1 ? "rounded-full process-accent" : "rounded-sm border process-border-strong"}`} />
+                  <span className="h-px flex-1 process-line-mid" />
+                </div>
+              ))}
             </div>
           </div>
-          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-md process-panel px-4 py-2 border process-border-strong max-sm:gap-1 max-sm:px-2 max-sm:py-1.5">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <span
-                key={index}
-                  className={`size-3 max-sm:size-2 ${index === 0 ? "rounded-sm process-accent" : "rounded-sm border process-border-strong"}`}
-              />
-            ))}
-          </div>
-        </div>
 
-        <div className="rounded-md process-panel p-4 border process-border-strong max-sm:p-2">
-          <div className="mb-4 h-5 rounded-sm process-accent-soft border process-border-soft" />
-          <div className="space-y-4">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="space-y-2 max-sm:space-y-1.5">
-                <span className="block h-px w-9 process-line-strong" />
-                <span className="block h-4 rounded-sm process-fill-soft border process-border-soft max-sm:h-3" />
+          <div className="relative overflow-hidden p-4 max-sm:p-2.5">
+            <div className="mx-auto flex h-full max-w-[230px] flex-col border process-border-strong process-panel p-3 max-sm:p-2">
+              <div className="mb-3 flex items-center justify-between max-sm:mb-2">
+                <span className="h-px w-12 process-line-strong max-sm:w-8" />
+                <span className="h-3 w-10 rounded-full process-accent max-sm:h-2.5 max-sm:w-7" />
               </div>
-            ))}
+              <div className="grid min-h-0 flex-1 grid-cols-[1.1fr_0.9fr] gap-3 max-sm:gap-1.5">
+                <div className="rounded-sm border process-border-soft process-fill-soft" />
+                <div className="flex flex-col gap-2 max-sm:gap-1.5">
+                  <span className="h-px w-full process-line-strong" />
+                  <span className="h-px w-4/5 process-line-mid" />
+                  <span className="h-px w-2/3 process-line-soft" />
+                  <span className="mt-auto h-5 rounded-sm border process-border-soft process-accent-soft max-sm:h-3.5" />
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full border process-border-strong process-panel px-3 py-1.5 max-sm:bottom-1 max-sm:gap-1 max-sm:px-2 max-sm:py-1">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <span key={index} className={`size-2.5 max-sm:size-2 ${index === 0 ? "rounded-sm process-accent" : "rounded-full border process-border-strong"}`} />
+              ))}
+            </div>
+          </div>
+
+          <div className="border-l process-border-strong p-2.5 max-sm:hidden">
+            <div className="mb-3 h-4 rounded-sm border process-border-soft process-accent-soft max-sm:mb-2 max-sm:h-3" />
+            <div className="space-y-3 max-sm:space-y-2">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="space-y-1.5 max-sm:space-y-1">
+                  <span className="block h-px w-8 process-line-strong max-sm:w-5" />
+                  <span className="block h-3 rounded-sm border process-border-soft process-fill-soft max-sm:h-2.5" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

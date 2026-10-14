@@ -14,6 +14,7 @@ export default function Values() {
             {["Intentional", "Impactful", "Polished", "Honest"].map((word) => (
               <h1
                 key={word}
+                data-reveal
                 className="section-heading"
               >
                 {word}
@@ -21,7 +22,7 @@ export default function Values() {
             ))}
           </div>
 
-          <div className="col-start-2 col-end-[-1] max-md:col-span-full">
+          <div data-reveal className="col-start-2 col-end-[-1] max-md:col-span-full">
             <p className="text-base leading-5">
               I care about websites with a point of view: clear hierarchy,
               good spacing, sharp interaction, and pages that feel finished

@@ -306,8 +306,8 @@
   --fg-10: rgb(255 255 255 / 0.17);
   --fg-5: rgb(255 255 255 / 0.12);
   --fg-0: rgb(255 255 255 / 0);
-  --bg: rgb(0 0 0);
-  --bg-0: rgb(0 0 0 / 0);
+  --bg: rgb(26 26 26);
+  --bg-0: rgb(26 26 26 / 0);
   --accent: rgb(255 196 214);
   --accent-soft: rgb(255 196 214 / 0.22);
 }
@@ -328,6 +328,29 @@ html {
   font-size: 16px;
   line-height: 1.25;
   scroll-behavior: smooth;
+}
+
+.site-pill-nav {
+  translate: -50% 0;
+}
+
+@media (max-width: 1020px) {
+  .site-pill-nav {
+    top: 12px;
+    max-width: none;
+    transform: scale(0.68);
+    transform-origin: top center;
+  }
+
+  .site-pill-nav > * {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-pill-nav {
+    transform: scale(0.6);
+  }
 }
 
 body {
@@ -460,7 +483,7 @@ p {
   animation: process-card-reveal 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes project-blur-fade {
+@keyframes blur-reveal {
   0% {
     opacity: 0;
     filter: blur(14px);
@@ -473,18 +496,38 @@ p {
   }
 }
 
-.project-blur-item {
-  animation: project-blur-fade 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+.reveal-system [data-reveal] {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(18px);
+}
+
+.reveal-system [data-reveal].is-revealed {
+  animation: blur-reveal 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--reveal-delay, 0ms);
 }
 
-.project-reveal-group {
-  animation: project-blur-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+.scroll-blur-veil {
+  position: fixed;
+  z-index: 99;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 48px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 18%, transparent));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 78%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 78%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-blur-item,
-  .project-reveal-group {
+  .reveal-system [data-reveal],
+  .reveal-system [data-reveal].is-revealed {
+    opacity: 1;
+    filter: none;
+    transform: none;
     animation: none;
   }
 }
@@ -583,6 +626,11 @@ p {
   animation: collage-pan 48s linear infinite;
 }
 
+.service-image-overlay {
+  background-color: color-mix(in srgb, var(--bg) 82%, white 18%);
+  opacity: 0.16;
+}
+
 /* ============================================================================
    Image overlays for themed color tinting
    ============================================================================ */
@@ -604,7 +652,7 @@ p {
 .theme-10 .image-overlay-01,
 .theme-9 .image-overlay-01 {
   background-color: var(--bg);
-  opacity: 0.33;
+  opacity: 0.18;
   mix-blend-mode: multiply;
 }
 .theme-15 .image-overlay-02,
@@ -615,6 +663,7 @@ p {
 .theme-10 .image-overlay-02,
 .theme-9 .image-overlay-02 {
   background-color: var(--fg);
+  opacity: 0.72;
   mix-blend-mode: lighten;
 }
 
@@ -628,7 +677,7 @@ p {
 .theme-2 .image-overlay-01,
 .theme-1 .image-overlay-01 {
   background-color: var(--fg);
-  opacity: 0.33;
+  opacity: 0.18;
   mix-blend-mode: multiply;
 }
 .theme-8 .image-overlay-02,
@@ -640,6 +689,7 @@ p {
 .theme-2 .image-overlay-02,
 .theme-1 .image-overlay-02 {
   background-color: var(--bg);
+  opacity: 0.72;
   mix-blend-mode: lighten;
 }
 

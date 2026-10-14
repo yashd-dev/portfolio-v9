@@ -16,7 +16,7 @@ export default function Header({
 
   return (
     <header
-      className="fixed top-0 w-full z-[100] select-none"
+      className="fixed top-0 z-[100] hidden w-full select-none lg:block"
       style={{ padding: "0 var(--spacing-app-margin)" }}
     >
       <div className="flex items-center justify-between py-5 max-lg:py-2">

@@ -46,6 +46,7 @@ export default function Intro() {
         }}
       >
         <div
+          data-reveal
           className="relative w-full transition-[mask-image] duration-300"
           style={{
             maskImage: `linear-gradient(to right, ${
@@ -94,7 +95,7 @@ export default function Intro() {
           </div>
         </div>
 
-        <div className="mt-10 max-sm:mt-8">
+        <div data-reveal className="mt-10 max-sm:mt-8">
           {INTRO_OPTIONS.map((opt) =>
             activeId === opt.id ? (
               opt.isHtml ? (
@@ -127,6 +128,7 @@ export default function Intro() {
           )}
         </div>
         <a
+          data-reveal
           href={DISCUSSION_LINK}
           target="_blank"
           rel="noopener noreferrer"

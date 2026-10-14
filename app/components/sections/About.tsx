@@ -11,7 +11,7 @@ export default function About() {
       >
         <div className="grid grid-cols-2 gap-8">
 
-          <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
+          <div data-reveal className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <p className="text-base leading-5">
               I&apos;m a web designer and developer pursuing Computer
               Engineering while building practical websites and products for
@@ -23,7 +23,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="col-start-2 col-end-[-1] max-sm:col-span-full">
+          <div data-reveal className="col-start-2 col-end-[-1] max-sm:col-span-full">
             <h2
               className="pt-12 pb-[0.14em]"
               style={{

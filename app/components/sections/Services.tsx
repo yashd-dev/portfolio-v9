@@ -48,7 +48,7 @@ export default function Services() {
       <div
         className="col-start-3 col-end-13 grid grid-cols-11 gap-8 section-pad max-lg:col-start-1 max-lg:grid-cols-1"
       >
-        <div className="col-span-5 mb-10 max-w-[760px] max-lg:col-span-1">
+        <div data-reveal className="col-span-5 mb-10 max-w-[760px] max-lg:col-span-1">
           <p className="mb-3 text-sm text-fg-50">What I offer</p>
           <h2
             className="section-heading"
@@ -58,7 +58,7 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="col-span-full flex h-[420px] gap-2 max-lg:h-auto max-lg:flex-col">
+        <div data-reveal className="col-span-full flex h-[420px] gap-2 max-lg:h-auto max-lg:flex-col">
           {SERVICES.map((service, index) => {
             const isActive = activeService === index;
 
@@ -80,6 +80,8 @@ export default function Services() {
                   className={`absolute inset-0 bg-cover bg-center transition-[transform,filter] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? "scale-100 brightness-100 saturate-100" : "scale-110 brightness-75 saturate-75"}`}
                   style={{ backgroundImage: `url("${service.image}")` }}
                 />
+
+                <div className="service-image-overlay absolute inset-0" />
 
                 <div
                   className={`absolute inset-0 transition-opacity duration-700 ${isActive ? "opacity-100" : "opacity-70"}`}

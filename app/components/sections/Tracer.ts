@@ -98,7 +98,13 @@ export function traceVisual(root: HTMLElement, onDone: () => void) {
 
     if (kind === "path") {
       const p = el as SVGPathElement;
-      const len = p.getTotalLength();
+      let len = 0;
+      try {
+        len = p.getTotalLength();
+      } catch {
+        return;
+      }
+      if (!Number.isFinite(len) || len <= 0) return;
       p.style.strokeDasharray = `${len}`;
       anims.push(
         p.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], {

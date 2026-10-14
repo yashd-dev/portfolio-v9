@@ -34,7 +34,7 @@ export default function Contact() {
           <div className="flex flex-col justify-between">
             <div>
 
-              <div className="relative mb-4">
+              <div data-reveal className="relative mb-4">
                 <div className="relative flex items-center gap-2">
                   <div className="relative w-6 h-6 flex items-center justify-center">
                     <div className="absolute w-2 h-2 rounded-full bg-fg" />
@@ -49,13 +49,13 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div>
+              <div data-reveal>
                 <h3 className="text-base leading-[1.375] text-fg-50">
                   Open to new opportunities
                 </h3>
               </div>
 
-              <div>
+              <div data-reveal>
                 <h2
                   style={{
                     fontSize: "var(--font-size-large)",
@@ -71,7 +71,7 @@ export default function Contact() {
               </div>
             </div>
 
-                <div className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
+                <div data-reveal className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
                   <div className="flex-1 w-full overflow-x-clip">
                     <GitHubCalendar
                       username="yashd-dev"
@@ -100,7 +100,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-            <div className="grid grid-cols-2 gap-8 pt-12 max-sm:pt-12 max-sm:pb-7">
+            <div data-reveal className="grid grid-cols-2 gap-8 pt-12 max-sm:pt-12 max-sm:pb-7">
               <div>
                 <a
                   href="mailto:hey@yashd.in?subject=Enquiry%20from%20website"
@@ -149,7 +149,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
+          <div data-reveal>
             <figure className="relative">
               <Image
                 src="/images/me.jpg"

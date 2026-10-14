@@ -78,7 +78,11 @@ function StepCard({
       onDone();
       return;
     }
-    return traceVisual(visualRef.current, onDone);
+    try {
+      return traceVisual(visualRef.current, onDone);
+    } catch {
+      onDone();
+    }
 
   }, [active, onDone]);
 
@@ -95,11 +99,11 @@ function StepCard({
       <article className="process-card h-full overflow-hidden rounded-2xl process-border-soft bg-bg text-fg">
         <div
           ref={visualRef}
-          className="h-[300px] process-panel p-3 max-sm:h-auto max-sm:min-h-[210px] max-sm:p-2"
+          className="h-[300px] process-panel p-3 max-sm:h-auto max-sm:min-h-[210px] max-sm:p-0"
         >
           {step.visual}
         </div>
-        <div className="border-t process-border-soft bg-bg p-7 max-sm:p-5">
+        <div className="border-t process-border-soft bg-bg p-7 max-sm:py-5 max-sm:px-0">
           <div className="mb-5 flex items-center justify-between gap-4 text-xs text-fg-50 max-sm:mb-4">
             <span className="tabular-nums">{step.number}</span>
             <span>{step.eyebrow}</span>
