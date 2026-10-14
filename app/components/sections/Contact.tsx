@@ -37,14 +37,7 @@ export default function Contact() {
               <div data-reveal className="relative mb-4">
                 <div className="relative flex items-center gap-2">
                   <div className="relative w-6 h-6 flex items-center justify-center">
-                    <div className="absolute w-2 h-2 rounded-full bg-fg" />
-                    <div
-                      className="absolute w-2 h-2 rounded-full"
-                      style={{
-                        animation:
-                          "pulse 3s cubic-bezier(0.1, 0.5, 0.6, 1) infinite",
-                      }}
-                    />
+                    <div className="absolute h-2.5 w-2.5 rounded-full bg-green-500" />
                   </div>
                 </div>
               </div>
@@ -71,8 +64,8 @@ export default function Contact() {
               </div>
             </div>
 
-                <div data-reveal className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden">
-                  <div className="flex-1 w-full overflow-x-clip">
+                <div data-reveal className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden max-sm:max-w-none">
+                  <div className="flex-1 w-full overflow-x-clip max-sm:overflow-x-auto">
                     <GitHubCalendar
                       username="yashd-dev"
                       colorScheme={theme === 16 ? "light" : "dark"}

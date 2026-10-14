@@ -443,13 +443,13 @@ p {
 
 @keyframes collage-pan {
   0% {
-    background-position: center top;
+    transform: translateY(0);
   }
   50% {
-    background-position: center bottom;
+    transform: translateY(-34%);
   }
   100% {
-    background-position: center top;
+    transform: translateY(0);
   }
 }
 
@@ -623,7 +623,10 @@ p {
 }
 
 .collage-window-image {
+  height: 152% !important;
+  inset: 0 0 auto !important;
   animation: collage-pan 48s linear infinite;
+  will-change: transform;
 }
 
 .service-image-overlay {

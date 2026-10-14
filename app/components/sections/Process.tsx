@@ -52,7 +52,10 @@ function StepCard({
 }) {
   const visualRef = useRef<HTMLDivElement>(null);
   const onDoneRef = useRef(onDone);
-  onDoneRef.current = onDone;
+
+  useEffect(() => {
+    onDoneRef.current = onDone;
+  }, [onDone]);
 
   const active = started && status === "active";
   const visible = status !== "pending";
@@ -108,7 +111,7 @@ function StepCard({
             <span className="tabular-nums">{step.number}</span>
             <span>{step.eyebrow}</span>
           </div>
-          <h3 className="text-[var(--font-size-title)] leading-none tracking-[-0.035em] max-sm:text-[clamp(32px,11vw,40px)]">
+          <h3 className="text-[var(--font-size-title)] leading-none tracking-[-0.035em] max-sm:text-[clamp(28px,8vw,36px)]">
             {step.title}
           </h3>
           <p className="mt-5 max-w-[620px] text-sm leading-5 text-fg-50 max-sm:mt-4 max-sm:text-[13px] max-sm:leading-[1.45]">
@@ -125,7 +128,10 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
   const [started, setStarted] = useState(false);
   const headingRef = useRef<HTMLDivElement>(null);
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   // Start once the heading enters view, OR has already been scrolled past
   // (fast scroll). After this, the sequence runs to completion on its own.

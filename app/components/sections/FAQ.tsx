@@ -48,6 +48,7 @@ export default function FAQ() {
   const [currencyCode, setCurrencyCode] = useState<(typeof CURRENCIES)[number]["code"]>("INR");
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const selectedCurrency = CURRENCIES.find((currency) => currency.code === currencyCode) ?? CURRENCIES[0];
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -75,12 +76,12 @@ export default function FAQ() {
     <section id="section-faq" className="app-grid gap-8">
       <div className="col-start-3 col-end-13 section-pad max-lg:col-start-1">
         <div className="grid grid-cols-11 gap-8 max-lg:grid-cols-1 max-sm:gap-6">
-          <div data-reveal className="col-span-5 max-w-none max-lg:col-span-1">
+          <div className="col-span-5 max-w-none max-lg:col-span-1">
             <p className="mb-3 text-sm text-fg-50">Website FAQ draft</p>
             <h2 className="section-heading">Questions, answered.</h2>
           </div>
 
-          <div data-reveal className="col-start-7 col-end-12 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
+          <div className="col-start-7 col-end-12 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
             <p className="max-w-[700px] text-[var(--font-size-medium)] leading-[1.15] text-fg-50">
               A clearer view of working together, project scope, design process,
               hosting, ecommerce, and what happens after launch.
@@ -88,34 +89,51 @@ export default function FAQ() {
           </div>
 
           <div className="col-span-full pt-12 max-sm:pt-6">
-            {FAQ_GROUPS.map((group, groupIndex) => (
+            {FAQ_GROUPS.map((group, groupIndex) => {
+              const isGroupOpen = openGroup === group.title;
+
+              return (
               <section
                 key={group.title}
-                data-reveal
-                className="grid grid-cols-11 gap-8 border-t border-fg-10 py-12 max-lg:grid-cols-1 max-sm:gap-6 max-sm:py-7"
+                className="grid grid-cols-11 gap-8 border-t border-fg-10 py-12 max-lg:grid-cols-1 max-sm:gap-0 max-sm:py-0"
               >
-                <div className="col-span-3 max-lg:col-span-1">
-                  <p className="mb-3 text-sm text-fg-50 tabular-nums">
-                    {String(groupIndex + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="text-[var(--font-size-large)] leading-none tracking-[-0.03em]">
-                    {group.title}
-                  </h3>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setOpenGroup(isGroupOpen ? null : group.title)}
+                  aria-expanded={isGroupOpen}
+                  className="col-span-3 text-left max-lg:col-span-1 max-sm:flex max-sm:w-full max-sm:items-start max-sm:justify-between max-sm:gap-5 max-sm:py-6"
+                >
+                  <span>
+                    <span className="mb-3 block text-sm text-fg-50 tabular-nums">
+                      {String(groupIndex + 1).padStart(2, "0")}
+                    </span>
+                    <span className="block text-[var(--font-size-large)] leading-none tracking-[-0.03em] max-sm:text-[clamp(28px,8vw,36px)]">
+                      {group.title}
+                    </span>
+                  </span>
+                  <span className={`hidden shrink-0 pt-1 text-3xl leading-none text-fg-50 transition-transform duration-300 max-sm:block ${isGroupOpen ? "rotate-45" : ""}`}>
+                    +
+                  </span>
+                </button>
 
-                <div className="col-start-5 col-end-12 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
+                <div className={`col-start-5 col-end-12 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto ${isGroupOpen ? "max-sm:block" : "max-sm:hidden"}`}>
                   <div className="divide-y divide-fg-10">
-                    {group.items.map((item) => (
+                    {group.items.map((item) => {
+                      const isOpen = openQuestion === item.question;
+
+                      return (
                       <details
                         key={item.question}
-                        open={openQuestion === item.question}
-                        onToggle={(event) => {
-                          const isOpen = event.currentTarget.open;
-                          setOpenQuestion(isOpen ? item.question : null);
-                        }}
+                        open={isOpen}
                         className="group py-6 first:pt-0 last:pb-0"
                       >
-                        <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-[clamp(22px,2vw,30px)] leading-[1.08] tracking-[-0.02em] marker:hidden [&::-webkit-details-marker]:hidden">
+                        <summary
+                          onClick={(event) => {
+                            event.preventDefault();
+                            setOpenQuestion(isOpen ? null : item.question);
+                          }}
+                          className="flex cursor-pointer list-none items-start justify-between gap-6 text-[clamp(22px,2vw,30px)] leading-[1.08] tracking-[-0.02em] marker:hidden max-sm:text-[20px] [&::-webkit-details-marker]:hidden"
+                        >
                           <span>{item.question}</span>
                           <span className="mt-1 shrink-0 text-fg-50 transition-transform duration-300 group-open:rotate-45">
                             +
@@ -125,11 +143,13 @@ export default function FAQ() {
                           {item.answer}
                         </p>
                       </details>
-                    ))}
+                    );
+                    })}
                   </div>
                 </div>
               </section>
-            ))}
+            );
+            })}
 
             <section
               data-reveal

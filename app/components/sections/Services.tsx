@@ -133,7 +133,7 @@ export default function Services() {
               />
 
               <div className="pt-7 max-sm:pt-6">
-                <h3 className="text-[clamp(34px,10vw,48px)] font-semibold leading-none tracking-[-0.04em]">
+                <h3 className="text-[clamp(28px,8vw,36px)] font-semibold leading-none tracking-[-0.035em]">
                   {service.title}
                 </h3>
 

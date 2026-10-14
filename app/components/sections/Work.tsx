@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { PROJECTS } from "@/app/data/content";
 import Process from "@/app/components/sections/Process";
 import Services from "@/app/components/sections/Services";
@@ -50,14 +51,14 @@ export default function Work() {
           className="app-grid gap-8"
         >
           <figure data-reveal className="relative col-start-2 col-end-13 h-[62vh] w-full overflow-hidden rounded-xl bg-fg-5 p-3 max-lg:col-start-1">
-            <div
-              className="collage-window-image h-full w-full rounded-2xl"
-              style={{
-                backgroundImage: 'url("/images/collage.png")',
-                backgroundSize: "cover",
-                backgroundPosition: "center top",
-                backgroundRepeat: "no-repeat",
-              }}
+            <Image
+              src="/images/collage.png"
+              alt=""
+              fill
+              priority
+              quality={55}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 92vw, 84vw"
+              className="collage-window-image rounded-2xl object-cover object-top"
             />
 
             <div className="image-overlay-01 absolute inset-0" />
@@ -79,7 +80,7 @@ export default function Work() {
         >
           <div className="col-start-2 col-end-13 max-lg:col-start-1">
             <div className="grid grid-cols-11 gap-8 pb-8 max-lg:grid-cols-1 max-sm:gap-6 max-sm:pb-4">
-              <div data-reveal className="col-span-5 max-w-none max-lg:col-span-1">
+              <div className="col-span-5 max-w-none max-lg:col-span-1">
                 <p className="mb-3 text-sm text-fg-50">Selected projects</p>
                 <h2
                   className="section-heading"
@@ -87,7 +88,7 @@ export default function Work() {
                   Built for real launches, not just screenshots.
                 </h2>
               </div>
-              <div data-reveal className="col-start-7 col-end-11 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
+              <div className="col-start-7 col-end-11 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
                 <p className="max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
                   A few websites and products where I handled the interface,
                   build, polish, integrations, and deployment details that make
@@ -124,16 +125,15 @@ export default function Work() {
                 </div>
 
                 <div className="col-start-7 col-end-10 flex flex-col justify-center max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
-                  <p data-reveal className="mb-4 text-sm text-fg-50 tabular-nums">
+                  <p className="mb-4 text-sm text-fg-50 tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <h2
-                    data-reveal
-                    className="section-heading"
+                    className="section-heading max-sm:text-[clamp(30px,9vw,40px)]"
                   >
                     {project.name}
                   </h2>
-                  <div data-reveal className="mt-7 flex flex-wrap gap-3">
+                  <div className="mt-7 flex flex-wrap gap-3">
                     {project.tech.split(", ").map((tech) => {
                       const icon = STACK_ICONS[tech];
 
@@ -159,7 +159,7 @@ export default function Work() {
                       );
                     })}
                   </div>
-                  <p data-reveal className="mt-8 max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
+                  <p className="mt-8 max-w-[620px] text-[var(--font-size-medium)] leading-[1.25] text-fg-50">
                     {project.description}
                   </p>
                 </div>
