@@ -43,7 +43,7 @@ export default function About() {
                 Mukesh Patel School of Technology Management and Engineering
                 Mumbai
               </span>
-              <span className="block text-fg-50">2021-2027</span>
+              <span className="block text-fg-50">2022-2087</span>
             </p>
           </div>
         </div>

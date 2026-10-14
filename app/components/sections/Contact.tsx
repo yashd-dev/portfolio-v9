@@ -64,8 +64,8 @@ export default function Contact() {
               </div>
             </div>
 
-                <div data-reveal className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-hidden max-sm:max-w-none">
-                  <div className="flex-1 w-full overflow-x-clip max-sm:overflow-x-auto">
+                <div data-reveal className="pt-10 flex flex-col xl:flex-row gap-6 w-full max-w-[90%] overflow-x-clip max-sm:max-w-none max-sm:overflow-x-auto">
+                  <div className="flex-1 w-full overflow-x-clip">
                     <GitHubCalendar
                       username="yashd-dev"
                       colorScheme={theme === 16 ? "light" : "dark"}

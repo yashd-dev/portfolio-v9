@@ -1,5 +1,3 @@
-"use client";
-
 import { REFERENCES } from "@/app/data/content";
 
 export default function References() {
