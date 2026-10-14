@@ -36,16 +36,10 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState(() => {
-    if (typeof window === "undefined") return 16;
+    if (typeof window === "undefined") return 0;
     const saved = localStorage.getItem("portfolio-theme");
     if (saved !== null && !isNaN(Number(saved))) return Number(saved);
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return 0;
-    }
-    return 16;
+    return 0;
   });
   const [gridVisible, setGridVisible] = useState(false);
   const [verticalGridVisible, setVerticalGridVisible] = useState(true);
