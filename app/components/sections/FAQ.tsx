@@ -47,6 +47,7 @@ function formatBudgetRange(
 export default function FAQ() {
   const [currencyCode, setCurrencyCode] = useState<(typeof CURRENCIES)[number]["code"]>("INR");
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
   const selectedCurrency = CURRENCIES.find((currency) => currency.code === currencyCode) ?? CURRENCIES[0];
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -73,7 +74,7 @@ export default function FAQ() {
   return (
     <section id="section-faq" className="app-grid gap-8">
       <div className="col-start-3 col-end-13 section-pad max-lg:col-start-1">
-        <div className="grid grid-cols-11 gap-8 max-lg:grid-cols-1">
+        <div className="grid grid-cols-11 gap-8 max-lg:grid-cols-1 max-sm:gap-6">
           <div data-reveal className="col-span-5 max-w-none max-lg:col-span-1">
             <p className="mb-3 text-sm text-fg-50">Website FAQ draft</p>
             <h2 className="section-heading">Questions, answered.</h2>
@@ -86,12 +87,12 @@ export default function FAQ() {
             </p>
           </div>
 
-          <div className="col-span-full pt-12 max-sm:pt-8">
+          <div className="col-span-full pt-12 max-sm:pt-6">
             {FAQ_GROUPS.map((group, groupIndex) => (
               <section
                 key={group.title}
                 data-reveal
-                className="grid grid-cols-11 gap-8 border-t border-fg-10 py-12 max-lg:grid-cols-1 max-sm:py-9"
+                className="grid grid-cols-11 gap-8 border-t border-fg-10 py-12 max-lg:grid-cols-1 max-sm:gap-6 max-sm:py-7"
               >
                 <div className="col-span-3 max-lg:col-span-1">
                   <p className="mb-3 text-sm text-fg-50 tabular-nums">
@@ -105,7 +106,15 @@ export default function FAQ() {
                 <div className="col-start-5 col-end-12 max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
                   <div className="divide-y divide-fg-10">
                     {group.items.map((item) => (
-                      <details key={item.question} className="group py-6 first:pt-0 last:pb-0">
+                      <details
+                        key={item.question}
+                        open={openQuestion === item.question}
+                        onToggle={(event) => {
+                          const isOpen = event.currentTarget.open;
+                          setOpenQuestion(isOpen ? item.question : null);
+                        }}
+                        className="group py-6 first:pt-0 last:pb-0"
+                      >
                         <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-[clamp(22px,2vw,30px)] leading-[1.08] tracking-[-0.02em] marker:hidden [&::-webkit-details-marker]:hidden">
                           <span>{item.question}</span>
                           <span className="mt-1 shrink-0 text-fg-50 transition-transform duration-300 group-open:rotate-45">
@@ -124,7 +133,7 @@ export default function FAQ() {
 
             <section
               data-reveal
-              className="grid grid-cols-11 gap-8 border-t border-fg-10 py-14 max-lg:grid-cols-1 max-sm:py-10"
+              className="grid grid-cols-11 gap-8 border-t border-fg-10 py-14 max-lg:grid-cols-1 max-sm:gap-6 max-sm:py-8"
             >
               <div className="col-span-4 max-lg:col-span-1">
                 <p className="mb-3 text-sm text-fg-50">Start a project</p>

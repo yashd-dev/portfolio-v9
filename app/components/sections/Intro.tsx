@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { INTRO_OPTIONS } from "@/app/data/content";
 import { useTheme } from "@/app/context/ThemeContext";
 
@@ -38,6 +39,24 @@ export default function Intro() {
       id="section-intro"
       className="app-grid gap-8"
     >
+      <div
+        data-reveal
+        className="relative col-start-2 col-end-4 hidden self-start overflow-hidden rounded-2xl lg:block"
+        style={{
+          marginTop: "calc(var(--spacing-xheight) + 52px)",
+          height: "calc(var(--font-size-huge) * 0.975 * 4.5 + 92px)",
+        }}
+      >
+        <Image
+          src="/images/ppt.png"
+          alt=""
+          fill
+          priority
+          sizes="16vw"
+          className="object-cover object-left"
+        />
+      </div>
+
       <div
         className="col-span-full lg:col-start-5 lg:col-end-[-1] xl:col-start-5 relative"
         style={{

@@ -6,7 +6,7 @@ const SERVICES = [
   {
     title: "Web design",
     image:
-      "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1772272935464-2e90d8218987?q=80&w=1634&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     description:
       "Sharp marketing websites with clear hierarchy, responsive pages, motion, and a visual direction that feels like the brand.",
     meta: "Design + build",
@@ -41,24 +41,23 @@ export default function Services() {
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <section
-      id="section-services"
-      className="app-grid gap-8"
-    >
-      <div
-        className="col-start-3 col-end-13 grid grid-cols-11 gap-8 section-pad max-lg:col-start-1 max-lg:grid-cols-1"
-      >
-        <div data-reveal className="col-span-5 mb-10 max-w-[760px] max-lg:col-span-1">
+    <section id="section-services" className="app-grid gap-8">
+      <div className="col-start-3 col-end-13 grid grid-cols-11 gap-8 section-pad max-lg:col-start-1 max-lg:grid-cols-1">
+        <div
+          data-reveal
+          className="col-span-5 mb-10 max-w-[760px] max-lg:col-span-1"
+        >
           <p className="mb-3 text-sm text-fg-50">What I offer</p>
-          <h2
-            className="section-heading"
-          >
-            <span className="text-accent">Everything</span> your
-            business needs online. From one person.
+          <h2 className="section-heading">
+            <span className="text-accent">Everything</span> your business needs
+            online. From one person.
           </h2>
         </div>
 
-        <div data-reveal className="col-span-full flex h-[420px] gap-2 max-lg:h-auto max-lg:flex-col">
+        <div
+          data-reveal
+          className="col-span-full flex h-[420px] gap-2 max-lg:hidden"
+        >
           {SERVICES.map((service, index) => {
             const isActive = activeService === index;
 
@@ -75,7 +74,6 @@ export default function Services() {
                 aria-expanded={isActive}
                 className={`group relative overflow-hidden rounded-2xl bg-black text-left text-white transition-[flex,border-color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-lg:h-auto max-lg:min-h-[220px] ${isActive ? "flex-[3.6] border-fg-25" : "flex-[0.78]"}`}
               >
-
                 <div
                   className={`absolute inset-0 bg-cover bg-center transition-[transform,filter] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? "scale-100 brightness-100 saturate-100" : "scale-110 brightness-75 saturate-75"}`}
                   style={{ backgroundImage: `url("${service.image}")` }}
@@ -92,9 +90,7 @@ export default function Services() {
                 />
 
                 <div className="relative flex h-full flex-col justify-between p-7">
-                  <span className="text-xs tabular-nums text-white/70">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <span aria-hidden="true" />
 
                   <span
                     aria-hidden="true"
@@ -104,13 +100,8 @@ export default function Services() {
                   </span>
 
                   <div>
-                    <p
-                      className={`text-sm uppercase tracking-[0.18em] text-white/70 transition-[opacity,filter,transform] ease-out ${enter} ${isActive ? "delay-[280ms]" : ""}`}
-                    >
-                      {service.meta}
-                    </p>
                     <h3
-                      className={`mt-4 font-semibold leading-none tracking-[-0.04em] transition-[opacity,filter,transform] ease-out ${enter} ${isActive ? "text-[clamp(36px,3.8vw,58px)] delay-[340ms]" : "text-2xl"}`}
+                      className={`font-semibold leading-none tracking-[-0.04em] transition-[opacity,filter,transform] ease-out ${enter} ${isActive ? "text-[clamp(36px,3.8vw,58px)] delay-[340ms]" : "text-2xl"}`}
                     >
                       {service.title}
                     </h3>
@@ -124,6 +115,34 @@ export default function Services() {
               </button>
             );
           })}
+        </div>
+
+        <div
+          data-reveal
+          className="col-span-full hidden max-lg:grid max-lg:gap-10 max-sm:gap-0"
+        >
+          {SERVICES.map((service) => (
+            <article
+              key={service.title}
+              className="border-t border-fg-10 py-10 first:border-t-0 first:pt-2 last:pb-2 max-sm:py-9"
+            >
+              <div
+                className="h-[260px] overflow-hidden rounded-2xl bg-cover bg-center max-sm:h-[220px]"
+                style={{ backgroundImage: `url("${service.image}")` }}
+                aria-hidden="true"
+              />
+
+              <div className="pt-7 max-sm:pt-6">
+                <h3 className="text-[clamp(34px,10vw,48px)] font-semibold leading-none tracking-[-0.04em]">
+                  {service.title}
+                </h3>
+
+                <p className="mt-5 max-w-[620px] text-[15px] leading-6 text-fg-50">
+                  {service.description}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

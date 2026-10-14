@@ -99,11 +99,11 @@ function StepCard({
       <article className="process-card h-full overflow-hidden rounded-2xl process-border-soft bg-bg text-fg">
         <div
           ref={visualRef}
-          className="h-[300px] process-panel p-3 max-sm:h-auto max-sm:min-h-[210px] max-sm:p-0"
+          className="h-[300px] process-panel p-3 max-sm:h-auto max-sm:min-h-[210px] max-sm:p-3"
         >
           {step.visual}
         </div>
-        <div className="border-t process-border-soft bg-bg p-7 max-sm:py-5 max-sm:px-0">
+        <div className="border-t process-border-soft bg-bg p-7 max-sm:p-5">
           <div className="mb-5 flex items-center justify-between gap-4 text-xs text-fg-50 max-sm:mb-4">
             <span className="tabular-nums">{step.number}</span>
             <span>{step.eyebrow}</span>
@@ -154,7 +154,7 @@ export default function Process({ onComplete }: { onComplete?: () => void }) {
             </p>
           </div>
 
-          <div className="col-span-full grid grid-cols-2 gap-8 pt-12 max-md:grid-cols-1 max-sm:gap-5 max-sm:pt-8">
+          <div className="col-span-full grid grid-cols-2 gap-8 pt-12 max-md:grid-cols-1 max-sm:gap-5 max-sm:pt-6">
             {PROCESS_STEPS.map((step, index) => (
               <StepCard
                 key={step.title}

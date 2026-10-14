@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { PROJECTS } from "@/app/data/content";
 import Process from "@/app/components/sections/Process";
 import Services from "@/app/components/sections/Services";
@@ -38,6 +39,8 @@ const STACK_ICONS: Record<string, { title: string; path: string }> = {
 };
 
 export default function Work() {
+  const [previewProject, setPreviewProject] = useState<string | null>(null);
+
   return (
     <section id="section-work" className="flex w-full" style={{ padding: 0 }}>
       <div
@@ -67,7 +70,7 @@ export default function Work() {
         <Process />
 
         <div
-          className="grid gap-8 pt-[var(--spacing-section)]"
+          className="grid gap-8 pt-[var(--spacing-section)] max-sm:pt-12"
           style={{
             paddingLeft: `var(--spacing-app-margin)`,
             paddingRight: `var(--spacing-app-margin)`,
@@ -75,7 +78,7 @@ export default function Work() {
           }}
         >
           <div className="col-start-2 col-end-13 max-lg:col-start-1">
-            <div className="grid grid-cols-11 gap-8 pb-8 max-lg:grid-cols-1">
+            <div className="grid grid-cols-11 gap-8 pb-8 max-lg:grid-cols-1 max-sm:gap-6 max-sm:pb-4">
               <div data-reveal className="col-span-5 max-w-none max-lg:col-span-1">
                 <p className="mb-3 text-sm text-fg-50">Selected projects</p>
                 <h2
@@ -95,25 +98,30 @@ export default function Work() {
             {PROJECTS.map((project, index) => (
               <article
                 key={project.name}
-                className="grid grid-cols-11 gap-8 py-16 max-lg:grid-cols-1 max-lg:gap-8"
+                className="grid grid-cols-11 gap-8 py-16 max-lg:grid-cols-1 max-lg:gap-8 max-sm:gap-6 max-sm:py-10"
               >
-                <a
+                <div
                   data-reveal
-                  href={project.link || undefined}
-                  target={project.link ? "_blank" : undefined}
-                  rel={project.link ? "noreferrer" : undefined}
-                  aria-label={project.link ? `Open ${project.name}` : undefined}
                   className="group relative col-span-5 block overflow-hidden rounded-2xl bg-fg-5 max-lg:col-span-1"
                 >
-                  <span className="absolute left-4 top-4 z-[1] rounded-full bg-bg/85 px-3 py-1 text-xs tabular-nums text-fg-50 backdrop-blur">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                   <Safari
-                    siteSrc={project.link}
+                    siteSrc={previewProject === project.name ? project.link : undefined}
                     imageSrc={`/website/${project.image}`}
                     url={project.link ?? project.name}
                   />
-                </a>
+                  {project.link && previewProject !== project.name ? (
+                    <button
+                      type="button"
+                      onClick={() => setPreviewProject(project.name)}
+                      className="absolute inset-0 z-20 hidden items-center justify-center bg-black/45 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 lg:flex"
+                      aria-label={`Show live preview for ${project.name}`}
+                    >
+                      <span className="rounded-full bg-bg px-5 py-3 text-sm font-medium text-fg shadow-sm transition-transform duration-300 group-hover:scale-100">
+                        Show preview
+                      </span>
+                    </button>
+                  ) : null}
+                </div>
 
                 <div className="col-start-7 col-end-10 flex flex-col justify-center max-lg:col-span-1 max-lg:col-start-auto max-lg:col-end-auto">
                   <p data-reveal className="mb-4 text-sm text-fg-50 tabular-nums">
